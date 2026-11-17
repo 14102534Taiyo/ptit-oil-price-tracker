@@ -13,6 +13,7 @@ import json
 import os
 import re
 import time
+import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
@@ -268,6 +269,61 @@ def save_json(path: Path, payload: Any) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def fetch_pttor_retail() -> tuple[str, str, dict[str, float]]:
+    """Fetch official daily retail prices from PTTOR OilPrice.asmx (works 7 days/week)."""
+    soap = """<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body><CurrentOilPrice xmlns="http://www.pttor.com"><Language>TH</Language></CurrentOilPrice></soap:Body>
+</soap:Envelope>"""
+    r = requests.post(
+        "https://orapiweb.pttor.com/oilservice/OilPrice.asmx",
+        data=soap.encode("utf-8"),
+        headers={
+            "Content-Type": "text/xml; charset=utf-8",
+            "SOAPAction": '"http://www.pttor.com/CurrentOilPrice"',
+            "User-Agent": HEADERS["User-Agent"],
+        },
+        timeout=15,
+    )
+    r.raise_for_status()
+    root = ET.fromstring(r.text)
+    res_node = root.find(".//{http://www.pttor.com}CurrentOilPriceResult")
+    if res_node is None or not res_node.text:
+        return "", "05:00", {}
+    ds = ET.fromstring(res_node.text)
+
+    pttor_map = {
+        "เบนซินแก๊สโซฮอล์ 95": "G95",
+        "เบนซินแก๊สโซฮอล์ 91": "G91",
+        "เบนซินแก๊สโซฮอล์ E20": "E20",
+        "เบนซินแก๊สโซฮอล์ E85": "E85",
+        "เบนซิน": "ULG95",
+        "ดีเซล": "HDIESEL",
+        "ดีเซล B20": "B20",
+        "Super Power GSH95": "PG95",
+        "Super Power Diesel": "PDIESEL",
+        "Super Power X99": "PX99",
+    }
+    prices: dict[str, float] = {}
+    eff_date = ""
+    eff_time = "05:00"
+    for f in ds.findall("FUEL"):
+        prod = (f.findtext("PRODUCT") or "").strip()
+        price_str = f.findtext("PRICE")
+        p_dt = (f.findtext("PRICE_DATE") or "").strip()
+        if p_dt and not eff_date:
+            eff_date = p_dt[:10]
+            if "T" in p_dt:
+                eff_time = p_dt.split("T")[1][:5]
+        code = pttor_map.get(prod)
+        if code and price_str:
+            try:
+                prices[code] = round(float(price_str), 2)
+            except ValueError:
+                pass
+    return eff_date, eff_time, prices
+
+
 def flush_outputs(
     year_records: dict[str, dict[str, Any]],
     inventory: dict[str, dict[str, Any]],
@@ -311,23 +367,50 @@ def flush_outputs(
     retail_public = PUBLIC_DATA_DIR / "retail_latest.json"
     if all_dates:
         latest_products = year_records[all_dates[-1][:4]][all_dates[-1]]["products"]
-        retail_seed = {
-            "effective_date": all_dates[-1],
-            "effective_time": "05:00",
-            "note": "อ้างอิงจากโครงสร้างราคา EPPO (รอเชื่อม API ค่ายน้ำมัน)",
-            "brands": ["PTTOR", "Bangchak", "Caltex"],
-            "items": [
-                {
-                    "id": p["id"],
-                    "name": p["name"],
-                    "ptt": p["retail"] if not p["id"].startswith("FO") and p["id"] != "LPG" else None,
-                    "bcp": p["retail"] if not p["id"].startswith("FO") and p["id"] not in ("ULG95", "LPG") else None,
-                    "caltex": p["retail"] if not p["id"].startswith("FO") and p["id"] not in ("E85", "B20", "LPG") else None,
-                    "eppo": p["retail"],
+        ptt_date, ptt_time, ptt_prices = "", "05:00", {}
+        try:
+            ptt_date, ptt_time, ptt_prices = fetch_pttor_retail()
+        except Exception as exc:
+            print(f"[WARN] PTTOR retail fetch failed: {exc}")
+
+        items = [
+            {
+                "id": p["id"],
+                "name": p["name"],
+                "ptt": ptt_prices.get(p["id"], p["retail"] if not p["id"].startswith("FO") and p["id"] != "LPG" else None),
+                "bcp": p["retail"] if not p["id"].startswith("FO") and p["id"] not in ("ULG95", "LPG") else None,
+                "caltex": p["retail"] if not p["id"].startswith("FO") and p["id"] not in ("E85", "B20", "LPG") else None,
+                "eppo": p["retail"],
+                "delta": 0.0,
+            }
+            for p in latest_products
+        ]
+        for prem_id, prem_name in [
+            ("PG95", "Super Power GSH95 (Premium)"),
+            ("PDIESEL", "Super Power Diesel (Premium)"),
+            ("PX99", "Super Power X99 (Premium)"),
+        ]:
+            if prem_id in ptt_prices:
+                items.append({
+                    "id": prem_id,
+                    "name": prem_name,
+                    "ptt": ptt_prices[prem_id],
+                    "bcp": None,
+                    "caltex": None,
+                    "eppo": None,
                     "delta": 0.0,
-                }
-                for p in latest_products
-            ],
+                })
+
+        retail_seed = {
+            "effective_date": ptt_date or all_dates[-1],
+            "effective_time": ptt_time,
+            "note": (
+                "PTTOR: ราคาจริงจาก orapiweb.pttor.com • Bangchak/Caltex: อ้างอิง EPPO"
+                if ptt_prices
+                else "อ้างอิงจากโครงสร้างราคา EPPO (รอเชื่อม API ค่ายน้ำมัน)"
+            ),
+            "brands": ["PTTOR", "Bangchak", "Caltex"],
+            "items": items,
         }
         save_json(DATA_DIR / "retail_latest.json", retail_seed)
         save_json(retail_public, retail_seed)
