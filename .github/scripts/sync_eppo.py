@@ -154,7 +154,7 @@ def parse_eppo_xlsx(xlsx_bytes: bytes, fallback_date: str, url: str = "") -> dic
 
     for r_idx, row_vals in enumerate(grid[:30]):
         for val in row_vals:
-            if isinstance(val, dt.datetime):
+            if isinstance(val, dt.datetime) and val.year >= 2010:
                 doc_date = val.strftime("%Y-%m-%d")
             s = str(val or "").upper().strip()
             if "EX-REFIN" in s:

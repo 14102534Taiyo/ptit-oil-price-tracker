@@ -27,15 +27,17 @@ export default function OilPriceDashboard() {
 
   const [selectedFuelId, setSelectedFuelId] = useState("G95");
   const [trendMetric, setTrendMetric] = useState<"oil_fund" | "retail" | "mkt_margin">("oil_fund");
+  const [trendYear, setTrendYear] = useState<string>("2026");
 
   // Page 3 state
   const [deepDiveFuel, setDeepDiveFuel] = useState("G95");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [activePreset, setActivePreset] = useState<"7d" | "1m" | "3m" | "ytd" | "all">("all");
+  const [activePreset, setActivePreset] = useState<"7d" | "1m" | "3m" | "ytd" | "all">("ytd");
   const [explorerComp, setExplorerComp] = useState<MetricKey>("oil_fund");
   const [explorerGranularity, setExplorerGranularity] = useState<"daily" | "change_only" | "monthly">("daily");
   const [explorerFormat, setExplorerFormat] = useState<"wide" | "long">("wide");
+  const [explorerPage, setExplorerPage] = useState(1);
 
   const stackedCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const trendCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -63,8 +65,9 @@ export default function OilPriceDashboard() {
         setManifest(mJson);
         setYearsIndex(yJson);
         setRetailLatest(rJson);
-        setStartDate(yJson.min_date);
+        setStartDate(`${yJson.max_date.slice(0, 4)}-01-01`);
         setEndDate(yJson.max_date);
+        setTrendYear(yJson.max_date.slice(0, 4));
 
         const yearPayloads = await Promise.all(
           yJson.years.map((yr) => fetch(`${base}/data/eppo/${yr}.json`).then((res) => res.json()))
@@ -83,6 +86,7 @@ export default function OilPriceDashboard() {
 
   const allDays = useMemo(() => {
     return Object.keys(historyMap)
+      .filter((d) => d >= "2017-01-01")
       .sort()
       .map((d) => historyMap[d]);
   }, [historyMap]);
@@ -155,6 +159,7 @@ export default function OilPriceDashboard() {
           ],
         },
         options: {
+          animation: false,
           indexAxis: "y",
           responsive: true,
           maintainAspectRatio: false,
@@ -172,16 +177,17 @@ export default function OilPriceDashboard() {
 
     if (trendCanvasRef.current) {
       chartsRef.current.trend?.destroy();
-      const byYear: Record<string, number[]> = {};
+      const byMonth: Record<string, number[]> = {};
       allDays.forEach((d) => {
+        if (trendYear !== "all" && !d.date.startsWith(trendYear)) return;
         const found = d.products.find((x) => x.id === selectedFuelId);
         if (!found) return;
-        const yr = d.date.slice(0, 4);
-        (byYear[yr] ??= []).push(found[trendMetric]);
+        const ym = d.date.slice(0, 7);
+        (byMonth[ym] ??= []).push(found[trendMetric]);
       });
 
-      const yearsSorted = Object.keys(byYear).sort();
-      const avgs = yearsSorted.map((yr) => +(byYear[yr].reduce((a, b) => a + b, 0) / byYear[yr].length).toFixed(2));
+      const monthsSorted = Object.keys(byMonth).sort();
+      const avgs = monthsSorted.map((ym) => +(byMonth[ym].reduce((a, b) => a + b, 0) / byMonth[ym].length).toFixed(2));
       const barColors = avgs.map((v) =>
         trendMetric === "oil_fund" ? (v < 0 ? "#059669" : "#d97706") : "#0284c7"
       );
@@ -189,21 +195,25 @@ export default function OilPriceDashboard() {
       chartsRef.current.trend = new Chart(trendCanvasRef.current, {
         type: "bar",
         data: {
-          labels: yearsSorted.map((yr) => `${Number(yr) + 543}`),
+          labels: monthsSorted.map((ym) => {
+            const [y, m] = ym.split("-");
+            return `${TH_MONTHS[Number(m) - 1]} ${String(Number(y) + 543).slice(-2)}`;
+          }),
           datasets: [
             {
-              label: `${selectedProduct?.name ?? selectedFuelId} — ค่าเฉลี่ยรายปี (บาท/หน่วย)`,
+              label: `${selectedProduct?.name ?? selectedFuelId} — ค่าเฉลี่ยรายเดือน (บาท/หน่วย)`,
               data: avgs,
               backgroundColor: barColors,
-              borderRadius: 6,
+              borderRadius: 4,
             },
           ],
         },
         options: {
+          animation: false,
           responsive: true,
           maintainAspectRatio: false,
           scales: {
-            x: { grid: { display: false }, ticks: { color: textColor } },
+            x: { grid: { display: false }, ticks: { color: textColor, maxRotation: 0 } },
             y: { grid: { color: gridColor }, ticks: { color: textColor } },
           },
           plugins: {
@@ -213,7 +223,7 @@ export default function OilPriceDashboard() {
         },
       });
     }
-  }, [activeTab, latestDay, allDays, trendMetric, selectedFuelId, selectedProduct, isDark]);
+  }, [activeTab, latestDay, allDays, trendMetric, trendYear, selectedFuelId, selectedProduct, isDark]);
 
   // Render Page 3 Deep-Dive Chart (All Components + Adaptive X-axis)
   useEffect(() => {
@@ -261,6 +271,8 @@ export default function OilPriceDashboard() {
         ],
       },
       options: {
+        animation: false,
+        elements: { point: { radius: filteredDays.length > 90 ? 0 : 2.5 } },
         responsive: true,
         maintainAspectRatio: false,
         scales: {
@@ -545,8 +557,8 @@ export default function OilPriceDashboard() {
             <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                 <div>
-                  <h2 className="text-base font-semibold">ค่าเฉลี่ยรายปีแยกตามผลิตภัณฑ์ (Annual Average)</h2>
-                  <p className="text-xs text-slate-500">เลือกผลิตภัณฑ์และตัวแปรเพื่อดูค่าเฉลี่ยรายปี (พ.ศ.)</p>
+                  <h2 className="text-base font-semibold">ค่าเฉลี่ยรายเดือนแยกตามผลิตภัณฑ์ (Monthly Average)</h2>
+                  <p className="text-xs text-slate-500">เลือกผลิตภัณฑ์ ปี พ.ศ. และตัวแปรเพื่อดูค่าเฉลี่ยรายเดือน</p>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
                   <select
@@ -557,6 +569,18 @@ export default function OilPriceDashboard() {
                     {latestDay.products.map((p) => (
                       <option key={p.id} value={p.id}>
                         {p.name}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    value={trendYear}
+                    onChange={(e) => setTrendYear(e.target.value)}
+                    className="text-xs rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-2.5 py-1.5"
+                  >
+                    <option value="all">ทุกปี (10 ปี)</option>
+                    {yearsIndex?.years.slice().reverse().map((yr) => (
+                      <option key={yr} value={yr}>
+                        ปี {Number(yr) + 543} ({yr})
                       </option>
                     ))}
                   </select>
@@ -747,7 +771,7 @@ export default function OilPriceDashboard() {
                   </thead>
                   <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                     {explorerFormat === "wide"
-                      ? explorerRows.map((r) => (
+                      ? explorerRows.slice((explorerPage - 1) * 50, explorerPage * 50).map((r) => (
                           <tr key={r.date} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
                             <td className="px-3 py-2 font-mono whitespace-nowrap">{r.date}</td>
                             <td className="px-3 py-2 whitespace-nowrap text-amber-700 dark:text-amber-300">{r.note || "—"}</td>
@@ -758,7 +782,7 @@ export default function OilPriceDashboard() {
                             ))}
                           </tr>
                         ))
-                      : explorerRows.flatMap((r) =>
+                      : explorerRows.slice((explorerPage - 1) * 50, explorerPage * 50).flatMap((r) =>
                           latestDay.products.map((p) => (
                             <tr key={`${r.date}-${p.id}`}>
                               <td className="px-3 py-2 font-mono">{r.date}</td>
@@ -770,6 +794,29 @@ export default function OilPriceDashboard() {
                   </tbody>
                 </table>
               </div>
+              {explorerRows.length > 50 && (
+                <div className="flex items-center justify-between text-xs text-slate-500 pt-1">
+                  <span>
+                    หน้า {explorerPage} / {Math.ceil(explorerRows.length / 50)} (แสดงทีละ 50 วัน จากทั้งหมด {explorerRows.length} วัน)
+                  </span>
+                  <div className="flex gap-2">
+                    <button
+                      disabled={explorerPage <= 1}
+                      onClick={() => setExplorerPage((p) => Math.max(1, p - 1))}
+                      className="px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 disabled:opacity-40"
+                    >
+                      ก่อนหน้า
+                    </button>
+                    <button
+                      disabled={explorerPage >= Math.ceil(explorerRows.length / 50)}
+                      onClick={() => setExplorerPage((p) => p + 1)}
+                      className="px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 disabled:opacity-40"
+                    >
+                      ถัดไป
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </section>
         )}
