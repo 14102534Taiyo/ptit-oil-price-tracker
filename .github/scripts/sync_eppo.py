@@ -324,6 +324,80 @@ def fetch_pttor_retail() -> tuple[str, str, dict[str, float]]:
     return eff_date, eff_time, prices
 
 
+def fetch_bangchak_retail() -> tuple[str, str, dict[str, float]]:
+    """Fetch official daily retail prices from Bangchak's ApiOilPrice2 JSON widget."""
+    r = requests.get(
+        "https://oil-price.bangchak.co.th/ApiOilPrice2/en",
+        headers={"User-Agent": HEADERS["User-Agent"]},
+        timeout=15,
+    )
+    r.raise_for_status()
+    payload = r.json()
+    if not payload:
+        return "", "05:00", {}
+    record = payload[0]
+    eff_date = ""
+    raw_date = (record.get("OilPriceDate") or "").strip()
+    if re.match(r"^\d{2}/\d{2}/\d{4}$", raw_date):
+        dd, mm, yyyy = raw_date.split("/")
+        eff_date = f"{yyyy}-{mm}-{dd}"
+    eff_time = (record.get("OilPriceTime") or "05:00").strip()[:5]
+
+    bcp_map = {
+        "Gasohol 95 S EVO": "G95",
+        "Gasohol 91 S EVO": "G91",
+        "Gasohol E20 S EVO": "E20",
+        "Gasohol E85 S EVO": "E85",
+        "Hi Diesel S": "HDIESEL",
+        "DIESEL B20": "B20",
+        "Hi Premium 98 Plus": "P98",
+        "Hi Premium Diesel Plus": "PDIESEL",
+    }
+    oils = json.loads(record.get("OilList") or "[]")
+    prices: dict[str, float] = {}
+    for item in oils:
+        code = bcp_map.get((item.get("OilName") or "").strip())
+        if code and item.get("PriceToday") is not None:
+            try:
+                prices[code] = round(float(item["PriceToday"]), 2)
+            except (TypeError, ValueError):
+                pass
+    return eff_date, eff_time, prices
+
+
+def fetch_caltex_retail() -> dict[str, float]:
+    """Fetch official daily retail prices from Caltex Thailand's fuel-prices page."""
+    r = requests.get(
+        "https://www.caltex.com/th/motorists/products-and-services/fuel-prices.html",
+        headers={"User-Agent": HEADERS["User-Agent"]},
+        timeout=15,
+    )
+    r.raise_for_status()
+    soup = BeautifulSoup(r.text, "html.parser")
+    caltex_map = {
+        "โกลด์ 95 เทครอน®": "ULG95",
+        "แก๊สโซฮอล์ 95 เทครอน®": "G95",
+        "แก๊สโซฮอล์ 91 เทครอน®": "G91",
+        "แก๊สโซฮอล์ E20": "E20",
+        "ดีเซล เทครอน® ดี": "HDIESEL",
+        "ดีเซล B20": "B20",
+        "พาวเวอร์ ดีเซล เทครอน® ดี": "PDIESEL",
+    }
+    prices: dict[str, float] = {}
+    for card in soup.select(".price-item"):
+        name_el = card.select_one(".first-col p")
+        price_els = card.select(".col-xs-4.col-md-3 p")
+        if not name_el or not price_els:
+            continue
+        code = caltex_map.get(name_el.get_text(strip=True))
+        if not code:
+            continue
+        m = re.search(r"(\d+(?:\.\d+)?)", price_els[0].get_text(strip=True))
+        if m:
+            prices[code] = round(float(m.group(1)), 2)
+    return prices
+
+
 def flush_outputs(
     year_records: dict[str, dict[str, Any]],
     inventory: dict[str, dict[str, Any]],
@@ -373,42 +447,82 @@ def flush_outputs(
         except Exception as exc:
             print(f"[WARN] PTTOR retail fetch failed: {exc}")
 
-        items = [
-            {
-                "id": p["id"],
+        bcp_date, bcp_time, bcp_prices = "", "05:00", {}
+        try:
+            bcp_date, bcp_time, bcp_prices = fetch_bangchak_retail()
+        except Exception as exc:
+            print(f"[WARN] Bangchak retail fetch failed: {exc}")
+
+        caltex_prices: dict[str, float] = {}
+        try:
+            caltex_prices = fetch_caltex_retail()
+        except Exception as exc:
+            print(f"[WARN] Caltex retail fetch failed: {exc}")
+
+        items = []
+        for p in latest_products:
+            pid = p["id"]
+            is_station_fuel = not pid.startswith("FO") and pid != "LPG"
+            ptt_val = ptt_prices.get(pid, p["retail"] if is_station_fuel else None) if ptt_prices or is_station_fuel else None
+            bcp_val = (
+                bcp_prices.get(pid)
+                if bcp_prices
+                else (p["retail"] if is_station_fuel and pid != "ULG95" else None)
+            )
+            caltex_val = (
+                caltex_prices.get(pid)
+                if caltex_prices
+                else (p["retail"] if is_station_fuel and pid not in ("E85", "B20") else None)
+            )
+            delta_val = round(ptt_val - p["retail"], 2) if (ptt_val is not None and p.get("retail") is not None) else 0.0
+            items.append({
+                "id": pid,
                 "name": p["name"],
-                "ptt": ptt_prices.get(p["id"], p["retail"] if not p["id"].startswith("FO") and p["id"] != "LPG" else None),
-                "bcp": p["retail"] if not p["id"].startswith("FO") and p["id"] not in ("ULG95", "LPG") else None,
-                "caltex": p["retail"] if not p["id"].startswith("FO") and p["id"] not in ("E85", "B20", "LPG") else None,
+                "ptt": ptt_val,
+                "bcp": bcp_val,
+                "caltex": caltex_val,
                 "eppo": p["retail"],
-                "delta": 0.0,
-            }
-            for p in latest_products
-        ]
+                "delta": delta_val,
+            })
+
         for prem_id, prem_name in [
             ("PG95", "Super Power GSH95 (Premium)"),
-            ("PDIESEL", "Super Power Diesel (Premium)"),
+            ("P98", "Hi Premium 98 Plus (Bangchak)"),
+            ("PDIESEL", "Premium Diesel (Super Power / Hi Premium / Techron)"),
             ("PX99", "Super Power X99 (Premium)"),
         ]:
-            if prem_id in ptt_prices:
+            ptt_p = ptt_prices.get(prem_id)
+            bcp_p = bcp_prices.get(prem_id)
+            caltex_p = caltex_prices.get(prem_id)
+            if ptt_p is not None or bcp_p is not None or caltex_p is not None:
                 items.append({
                     "id": prem_id,
                     "name": prem_name,
-                    "ptt": ptt_prices[prem_id],
-                    "bcp": None,
-                    "caltex": None,
+                    "ptt": ptt_p,
+                    "bcp": bcp_p,
+                    "caltex": caltex_p,
                     "eppo": None,
                     "delta": 0.0,
                 })
 
+        live_sources = []
+        if ptt_prices:
+            live_sources.append("PTTOR (orapiweb)")
+        if bcp_prices:
+            live_sources.append("Bangchak (ApiOilPrice2)")
+        if caltex_prices:
+            live_sources.append("Caltex (caltex.com)")
+        fallback_brands = [b for b, ok in [("PTTOR", ptt_prices), ("Bangchak", bcp_prices), ("Caltex", caltex_prices)] if not ok]
+        note_parts = []
+        if live_sources:
+            note_parts.append("ราคาจริงรายวัน: " + " • ".join(live_sources))
+        if fallback_brands:
+            note_parts.append(f"อ้างอิง EPPO: {'/'.join(fallback_brands)}")
+
         retail_seed = {
-            "effective_date": ptt_date or all_dates[-1],
-            "effective_time": ptt_time,
-            "note": (
-                "PTTOR: ราคาจริงจาก orapiweb.pttor.com • Bangchak/Caltex: อ้างอิง EPPO"
-                if ptt_prices
-                else "อ้างอิงจากโครงสร้างราคา EPPO (รอเชื่อม API ค่ายน้ำมัน)"
-            ),
+            "effective_date": ptt_date or bcp_date or all_dates[-1],
+            "effective_time": ptt_time if ptt_date else (bcp_time if bcp_date else "05:00"),
+            "note": " | ".join(note_parts) if note_parts else "อ้างอิงจากโครงสร้างราคา EPPO",
             "brands": ["PTTOR", "Bangchak", "Caltex"],
             "items": items,
         }

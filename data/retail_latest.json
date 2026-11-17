@@ -1,7 +1,7 @@
 {
   "effective_date": "2026-11-11",
   "effective_time": "05:00",
-  "note": "PTTOR: ราคาจริงจาก orapiweb.pttor.com • Bangchak/Caltex: อ้างอิง EPPO",
+  "note": "ราคาจริงรายวัน: PTTOR (orapiweb) • Bangchak (ApiOilPrice2) • Caltex (caltex.com)",
   "brands": [
     "PTTOR",
     "Bangchak",
@@ -49,7 +49,7 @@
       "name": "ULG95 (Premium)",
       "ptt": 48.83,
       "bcp": null,
-      "caltex": 48.83,
+      "caltex": 48.81,
       "eppo": 48.83,
       "delta": 0.0
     },
@@ -67,7 +67,7 @@
       "name": "H-DIESEL B20",
       "ptt": 33.5,
       "bcp": 33.5,
-      "caltex": null,
+      "caltex": 33.5,
       "eppo": 33.5,
       "delta": 0.0
     },
@@ -108,11 +108,20 @@
       "delta": 0.0
     },
     {
-      "id": "PDIESEL",
-      "name": "Super Power Diesel (Premium)",
-      "ptt": 49.05,
-      "bcp": null,
+      "id": "P98",
+      "name": "Hi Premium 98 Plus (Bangchak)",
+      "ptt": null,
+      "bcp": 48.55,
       "caltex": null,
+      "eppo": null,
+      "delta": 0.0
+    },
+    {
+      "id": "PDIESEL",
+      "name": "Premium Diesel (Super Power / Hi Premium / Techron)",
+      "ptt": 49.05,
+      "bcp": 49.05,
+      "caltex": 49.05,
       "eppo": null,
       "delta": 0.0
     },
