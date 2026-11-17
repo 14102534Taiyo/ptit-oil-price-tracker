@@ -43,15 +43,15 @@ HEADERS = {
 }
 
 FUEL_CODE_MAP = {
+    "GASOHOL95 E20": "E20",
+    "GASOHOL E20": "E20",
+    "GASOHOL95 E85": "E85",
+    "GASOHOL E85": "E85",
     "GASOHOL95 E10": "G95",
     "GASOHOL 95": "G95",
     "GASOHOL95": "G95",
     "GASOHOL91": "G91",
     "GASOHOL 91": "G91",
-    "GASOHOL95 E20": "E20",
-    "GASOHOL E20": "E20",
-    "GASOHOL95 E85": "E85",
-    "GASOHOL E85": "E85",
     "ULG95": "ULG95",
     "ULG 95": "ULG95",
     "H-DIESEL B20": "B20",
@@ -162,16 +162,17 @@ def parse_eppo_xlsx(xlsx_bytes: bytes, fallback_date: str) -> dict[str, Any]:
     if not header_row:
         raise ValueError("Could not locate EX-REFIN header row in EPPO workbook")
 
+    name_col = max(1, col_map.get("ex_refinery", 2) - 1)
     products: list[dict[str, Any]] = []
     for r in range(header_row + 1, ws.max_row + 1):
-        raw_name = ws.cell(r, 1).value
+        raw_name = ws.cell(r, name_col).value
         if raw_name is None:
             continue
         name_str = " ".join(str(raw_name).split())
         if not name_str:
             continue
         if "EXCHANGE RATE" in name_str.upper():
-            for c in range(2, min(ws.max_column + 1, 8)):
+            for c in range(name_col + 1, min(ws.max_column + 1, name_col + 8)):
                 v = ws.cell(r, c).value
                 if isinstance(v, (int, float)):
                     exchange_rate = round(float(v), 4)
@@ -272,7 +273,7 @@ def flush_outputs(
     save_json(PUBLIC_DATA_DIR / "sync_manifest.json", manifest)
 
     retail_public = PUBLIC_DATA_DIR / "retail_latest.json"
-    if not retail_public.exists() and all_dates:
+    if all_dates:
         latest_products = year_records[all_dates[-1][:4]][all_dates[-1]]["products"]
         retail_seed = {
             "effective_date": all_dates[-1],

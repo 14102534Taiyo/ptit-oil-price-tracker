@@ -7,5 +7,96 @@
     "Bangchak",
     "Caltex"
   ],
-  "items": []
+  "items": [
+    {
+      "id": "G95",
+      "name": "GASOHOL95 E10",
+      "ptt": 39.34,
+      "bcp": 39.34,
+      "caltex": 39.34,
+      "eppo": 39.34,
+      "delta": 0.0
+    },
+    {
+      "id": "G91",
+      "name": "GASOHOL91",
+      "ptt": 38.97,
+      "bcp": 38.97,
+      "caltex": 38.97,
+      "eppo": 38.97,
+      "delta": 0.0
+    },
+    {
+      "id": "E20",
+      "name": "GASOHOL95 E20",
+      "ptt": 31.3,
+      "bcp": 31.3,
+      "caltex": 31.3,
+      "eppo": 31.3,
+      "delta": 0.0
+    },
+    {
+      "id": "E85",
+      "name": "GASOHOL95 E85",
+      "ptt": 30.63,
+      "bcp": 30.63,
+      "caltex": null,
+      "eppo": 30.63,
+      "delta": 0.0
+    },
+    {
+      "id": "ULG95",
+      "name": "ULG95 (Premium)",
+      "ptt": 48.83,
+      "bcp": null,
+      "caltex": 48.83,
+      "eppo": 48.83,
+      "delta": 0.0
+    },
+    {
+      "id": "HDIESEL",
+      "name": "H-DIESEL",
+      "ptt": 40.79,
+      "bcp": 40.79,
+      "caltex": 40.79,
+      "eppo": 40.79,
+      "delta": 0.0
+    },
+    {
+      "id": "B20",
+      "name": "H-DIESEL B20",
+      "ptt": 33.5,
+      "bcp": 33.5,
+      "caltex": null,
+      "eppo": 33.5,
+      "delta": 0.0
+    },
+    {
+      "id": "FO600",
+      "name": "FO 600 (1) 2%S",
+      "ptt": null,
+      "bcp": null,
+      "caltex": null,
+      "eppo": 24.84,
+      "delta": 0.0
+    },
+    {
+      "id": "FO1500",
+      "name": "FO 1500 (2) 2%S",
+      "ptt": null,
+      "bcp": null,
+      "caltex": null,
+      "eppo": 22.69,
+      "delta": 0.0
+    },
+    {
+      "id": "LPG",
+      "name": "LPG (BAHT/KILOGRAM)",
+      "ptt": null,
+      "bcp": null,
+      "caltex": null,
+      "eppo": 25.87,
+      "delta": 0.0
+    }
+  ]
 }
