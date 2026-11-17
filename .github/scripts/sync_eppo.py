@@ -114,22 +114,26 @@ def extract_links_from_html(html_text: str) -> list[dict[str, Any]]:
 
 
 def _iter_sheet_rows(file_bytes: bytes, url: str) -> list[list[Any]]:
-    """Read first sheet into a 2D list of values, supporting both .xlsx (openpyxl) and legacy .xls (xlrd)."""
+    """Read top 45 rows x 20 cols of first sheet, supporting both .xlsx (openpyxl) and legacy .xls (xlrd)."""
     if not url.lower().endswith(".xls"):
         try:
-            wb = openpyxl.load_workbook(io.BytesIO(file_bytes), data_only=True)
+            wb = openpyxl.load_workbook(io.BytesIO(file_bytes), data_only=True, read_only=True)
             ws = wb[wb.sheetnames[0]]
-            return [[ws.cell(r, c).value for c in range(1, ws.max_column + 1)] for r in range(1, ws.max_row + 1)]
+            rows: list[list[Any]] = []
+            for r_idx, row in enumerate(ws.iter_rows(max_row=45, max_col=20, values_only=True)):
+                rows.append(list(row))
+            wb.close()
+            return rows
         except Exception:
             pass
 
     import xlrd
     book = xlrd.open_workbook(file_contents=file_bytes)
     sheet = book.sheet_by_index(0)
-    rows: list[list[Any]] = []
-    for r in range(sheet.nrows):
+    rows = []
+    for r in range(min(sheet.nrows, 45)):
         row_vals: list[Any] = []
-        for c in range(sheet.ncols):
+        for c in range(min(sheet.ncols, 20)):
             cell = sheet.cell(r, c)
             if cell.ctype == xlrd.XL_CELL_DATE:
                 row_vals.append(xlrd.xldate_as_datetime(cell.value, book.datemode))

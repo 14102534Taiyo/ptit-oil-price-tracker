@@ -62,7 +62,7 @@ jobs:
           MAX_PAGES: ${{ github.event.inputs.max_pages || '3' }}
           MIN_YEAR: ${{ github.event.inputs.min_year || '2017' }}
         run: |
-          python .github/scripts/sync_eppo.py
+          python -u .github/scripts/sync_eppo.py
 
       - name: Commit & Push Changes
         run: |
