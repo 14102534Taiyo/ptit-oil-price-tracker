@@ -13,6 +13,7 @@ import json
 import os
 import re
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
 
@@ -333,6 +334,7 @@ def main() -> None:
     force_refresh = os.getenv("FORCE_REFRESH", "false").lower() == "true"
     backfill_all = os.getenv("BACKFILL_ALL", "false").lower() == "true"
     max_pages = 0 if backfill_all else int(os.getenv("MAX_PAGES", "2"))
+    min_year = int(os.getenv("MIN_YEAR", "2017"))
 
     inventory: dict[str, dict[str, Any]] = load_json(INVENTORY_PATH, {})
     year_records: dict[str, dict[str, Any]] = {}
@@ -343,8 +345,18 @@ def main() -> None:
     updated_count = 0
     error_count = 0
     page = 1
+    below_min_streak = 0
 
-    print(f"[INFO] Starting EPPO sync (backfill_all={backfill_all}, max_pages={max_pages or 'ALL'}, force_refresh={force_refresh})")
+    print(f"[INFO] Starting EPPO sync (backfill_all={backfill_all}, min_year={min_year}, max_pages={max_pages or 'ALL'}, force_refresh={force_refresh})")
+
+    def download_and_parse(item: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+        f_resp = requests.get(item["url"], headers=HEADERS, timeout=25)
+        f_resp.raise_for_status()
+        parsed = parse_eppo_xlsx(f_resp.content, fallback_date=item["date"], url=item["url"])
+        parsed["note"] = item["note"]
+        parsed["source_url"] = item["url"]
+        parsed["version"] = item["version"]
+        return item, parsed
 
     while True:
         if max_pages > 0 and page > max_pages:
@@ -366,46 +378,51 @@ def main() -> None:
             print(f"[INFO] No .xlsx links found on page {page}. Stopping.")
             break
 
+        in_range_links = [it for it in links if it["date"] and int(it["date"][:4]) >= min_year]
+        if not in_range_links:
+            below_min_streak += 1
+            if below_min_streak >= 5:
+                print(f"[INFO] Reached {below_min_streak} consecutive pages below min_year={min_year}. Stopping backfill.")
+                break
+            page += 1
+            continue
+        below_min_streak = 0
+
+        to_fetch = [
+            it for it in in_range_links
+            if force_refresh or not (inventory.get(it["date"]) and inventory[it["date"]].get("url") == it["url"])
+        ]
+
         page_new = 0
-        for item in links:
-            date_str = item["date"]
-            if not date_str:
-                continue
-            year = date_str[:4]
-            prev_inv = inventory.get(date_str)
-
-            if not force_refresh and prev_inv and prev_inv.get("url") == item["url"]:
-                continue
-
-            try:
-                f_resp = session.get(item["url"], headers=HEADERS, timeout=25)
-                f_resp.raise_for_status()
-                parsed = parse_eppo_xlsx(f_resp.content, fallback_date=date_str, url=item["url"])
-                parsed["note"] = item["note"]
-                parsed["source_url"] = item["url"]
-                parsed["version"] = item["version"]
-
-                year_records.setdefault(year, {})[date_str] = parsed
-                inventory[date_str] = {"url": item["url"], "version": item["version"]}
-                updated_count += 1
-                page_new += 1
-                print(f"[SYNC] {date_str} (v{item['version']}) OK")
-            except Exception as exc:
-                error_count += 1
-                print(f"[WARN] Failed {date_str} ({item['url']}): {exc}")
+        if to_fetch:
+            with ThreadPoolExecutor(max_workers=8) as pool:
+                futures = {pool.submit(download_and_parse, it): it for it in to_fetch}
+                for fut in as_completed(futures):
+                    it = futures[fut]
+                    date_str = it["date"]
+                    year = date_str[:4]
+                    try:
+                        _, parsed = fut.result()
+                        year_records.setdefault(year, {})[date_str] = parsed
+                        inventory[date_str] = {"url": it["url"], "version": it["version"]}
+                        updated_count += 1
+                        page_new += 1
+                    except Exception as exc:
+                        error_count += 1
+                        print(f"[WARN] Failed {date_str} ({it['url']}): {exc}")
+            print(f"[PAGE {page}] Synced {page_new} files (total_days={len(inventory)})")
 
         # Early-stop in incremental mode once a full page has no new/updated files
         if not backfill_all and not force_refresh and page_new == 0:
             print(f"[INFO] Page {page} already up to date. Stopping incremental scan early.")
             break
 
-        # Checkpoint every 5 pages during large backfills
-        if page % 5 == 0 and updated_count > 0:
+        # Checkpoint every 10 pages during large backfills
+        if page % 10 == 0 and updated_count > 0:
             flush_outputs(year_records, inventory, updated_count)
             print(f"[CHECKPOINT] Saved progress at page {page} ({len(inventory)} total days)")
 
         page += 1
-        time.sleep(0.2)
 
     flush_outputs(year_records, inventory, updated_count)
     print(f"[DONE] Synced {updated_count} new/updated days (errors={error_count}). Total days in DB: {len(inventory)}")

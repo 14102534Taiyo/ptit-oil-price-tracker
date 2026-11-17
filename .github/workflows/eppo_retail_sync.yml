@@ -23,6 +23,11 @@ on:
         required: false
         type: string
         default: '3'
+      min_year:
+        description: 'Earliest year to include during backfill (e.g. 2017 = 10 years)'
+        required: false
+        type: string
+        default: '2017'
 
 permissions:
   contents: write
@@ -55,6 +60,7 @@ jobs:
           BACKFILL_ALL: ${{ github.event.inputs.backfill_all || 'false' }}
           FORCE_REFRESH: ${{ github.event.inputs.force_refresh || 'false' }}
           MAX_PAGES: ${{ github.event.inputs.max_pages || '3' }}
+          MIN_YEAR: ${{ github.event.inputs.min_year || '2017' }}
         run: |
           python .github/scripts/sync_eppo.py
 
