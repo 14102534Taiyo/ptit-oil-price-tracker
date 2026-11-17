@@ -59,7 +59,7 @@ FUEL_CODE_MAP = {
     "H-DIESEL B20": "B20",
     "H-DIESEL 20": "B20",
     "H-DIESEL B10": "B10",
-    "H-DIESEL B7": "HDIESEL",
+    "H-DIESEL B7": "B7",
     "H-DIESEL": "HDIESEL",
     "DIESEL": "HDIESEL",
     "FO 600": "FO600",

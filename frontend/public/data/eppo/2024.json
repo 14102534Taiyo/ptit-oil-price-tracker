@@ -89,7 +89,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.34,
         "discount": 0.0,
@@ -285,7 +285,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.52,
         "discount": 0.0,
@@ -481,7 +481,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.24,
         "discount": 0.0,
@@ -677,7 +677,7 @@
         "retail": 32.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.65,
         "discount": 0.0,
@@ -873,7 +873,7 @@
         "retail": 32.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.83,
         "discount": 0.0,
@@ -1069,7 +1069,7 @@
         "retail": 32.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.94,
         "discount": 0.0,
@@ -1265,7 +1265,7 @@
         "retail": 32.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.85,
         "discount": 0.0,
@@ -1461,7 +1461,7 @@
         "retail": 32.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.09,
         "discount": 0.0,
@@ -1657,7 +1657,7 @@
         "retail": 32.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.12,
         "discount": 0.0,
@@ -1853,7 +1853,7 @@
         "retail": 32.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.71,
         "discount": 0.0,
@@ -2049,7 +2049,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.57,
         "discount": 0.0,
@@ -2245,7 +2245,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.7,
         "discount": 0.0,
@@ -2441,7 +2441,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.78,
         "discount": 0.0,
@@ -2637,7 +2637,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.84,
         "discount": 0.0,
@@ -2833,7 +2833,7 @@
         "retail": 33.89
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.03,
         "discount": 0.0,
@@ -3029,7 +3029,7 @@
         "retail": 34.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.84,
         "discount": 0.0,
@@ -3225,7 +3225,7 @@
         "retail": 34.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.11,
         "discount": 0.0,
@@ -3421,7 +3421,7 @@
         "retail": 34.89
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.33,
         "discount": 0.0,
@@ -3617,7 +3617,7 @@
         "retail": 34.89
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.35,
         "discount": 0.0,
@@ -3813,7 +3813,7 @@
         "retail": 35.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.76,
         "discount": 0.0,
@@ -4009,7 +4009,7 @@
         "retail": 35.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.1,
         "discount": 0.0,
@@ -4205,7 +4205,7 @@
         "retail": 35.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.98,
         "discount": 0.0,
@@ -4401,7 +4401,7 @@
         "retail": 35.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.89,
         "discount": 0.0,
@@ -4597,7 +4597,7 @@
         "retail": 35.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.97,
         "discount": 0.0,
@@ -4793,7 +4793,7 @@
         "retail": 35.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.47,
         "discount": 0.0,
@@ -4989,7 +4989,7 @@
         "retail": 35.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.31,
         "discount": 0.0,
@@ -5185,7 +5185,7 @@
         "retail": 35.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.51,
         "discount": 0.0,
@@ -5381,7 +5381,7 @@
         "retail": 35.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.63,
         "discount": 0.0,
@@ -5577,7 +5577,7 @@
         "retail": 35.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.94,
         "discount": 0.0,
@@ -5773,7 +5773,7 @@
         "retail": 35.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.32,
         "discount": 0.0,
@@ -5969,7 +5969,7 @@
         "retail": 35.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.31,
         "discount": 0.0,
@@ -6165,7 +6165,7 @@
         "retail": 35.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.67,
         "discount": 0.0,
@@ -6361,7 +6361,7 @@
         "retail": 35.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.87,
         "discount": 0.0,
@@ -6557,7 +6557,7 @@
         "retail": 35.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.37,
         "discount": 0.0,
@@ -6753,7 +6753,7 @@
         "retail": 35.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.17,
         "discount": 0.0,
@@ -6949,7 +6949,7 @@
         "retail": 35.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.96,
         "discount": 0.0,
@@ -7145,7 +7145,7 @@
         "retail": 35.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.13,
         "discount": 0.0,
@@ -7341,7 +7341,7 @@
         "retail": 35.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.72,
         "discount": 0.0,
@@ -7537,7 +7537,7 @@
         "retail": 35.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.61,
         "discount": 0.0,
@@ -7733,7 +7733,7 @@
         "retail": 35.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.46,
         "discount": 0.0,
@@ -7929,7 +7929,7 @@
         "retail": 35.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.56,
         "discount": 0.0,
@@ -8125,7 +8125,7 @@
         "retail": 36.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.52,
         "discount": 0.0,
@@ -8321,7 +8321,7 @@
         "retail": 36.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.19,
         "discount": 0.0,
@@ -8517,7 +8517,7 @@
         "retail": 36.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.17,
         "discount": 0.0,
@@ -8713,7 +8713,7 @@
         "retail": 35.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.33,
         "discount": 0.0,
@@ -8909,7 +8909,7 @@
         "retail": 35.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.07,
         "discount": 0.0,
@@ -9105,7 +9105,7 @@
         "retail": 35.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.82,
         "discount": 0.0,
@@ -9301,7 +9301,7 @@
         "retail": 35.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.21,
         "discount": 0.0,
@@ -9497,7 +9497,7 @@
         "retail": 35.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.97,
         "discount": 0.0,
@@ -9693,7 +9693,7 @@
         "retail": 35.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.99,
         "discount": 0.0,
@@ -9889,7 +9889,7 @@
         "retail": 35.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.95,
         "discount": 0.0,
@@ -10085,7 +10085,7 @@
         "retail": 35.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.18,
         "discount": 0.0,
@@ -10281,7 +10281,7 @@
         "retail": 35.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.48,
         "discount": 0.0,
@@ -10477,7 +10477,7 @@
         "retail": 35.89
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.86,
         "discount": 0.0,
@@ -10673,7 +10673,7 @@
         "retail": 36.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.2,
         "discount": 0.0,
@@ -10869,7 +10869,7 @@
         "retail": 36.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.02,
         "discount": 0.0,
@@ -11065,7 +11065,7 @@
         "retail": 36.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.65,
         "discount": 0.0,
@@ -11261,7 +11261,7 @@
         "retail": 36.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.87,
         "discount": 0.0,
@@ -11457,7 +11457,7 @@
         "retail": 36.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.7,
         "discount": 0.0,
@@ -11653,7 +11653,7 @@
         "retail": 36.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.74,
         "discount": 0.0,
@@ -11849,7 +11849,7 @@
         "retail": 36.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.53,
         "discount": 0.0,
@@ -12045,7 +12045,7 @@
         "retail": 36.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.51,
         "discount": 0.0,
@@ -12241,7 +12241,7 @@
         "retail": 36.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.52,
         "discount": 0.0,
@@ -12437,7 +12437,7 @@
         "retail": 36.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.7,
         "discount": 0.0,
@@ -12633,7 +12633,7 @@
         "retail": 37.19
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.08,
         "discount": 0.0,
@@ -12829,7 +12829,7 @@
         "retail": 37.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.52,
         "discount": 0.0,
@@ -13025,7 +13025,7 @@
         "retail": 37.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.73,
         "discount": 0.0,
@@ -13221,7 +13221,7 @@
         "retail": 37.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 26.06,
         "discount": 0.0,
@@ -13417,7 +13417,7 @@
         "retail": 37.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.89,
         "discount": 0.0,
@@ -13613,7 +13613,7 @@
         "retail": 37.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.72,
         "discount": 0.0,
@@ -13809,7 +13809,7 @@
         "retail": 37.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.51,
         "discount": 0.0,
@@ -14005,7 +14005,7 @@
         "retail": 37.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 25.52,
         "discount": 0.0,
@@ -14201,7 +14201,7 @@
         "retail": 37.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.92,
         "discount": 0.0,
@@ -14397,7 +14397,7 @@
         "retail": 37.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.44,
         "discount": 0.0,
@@ -14593,7 +14593,7 @@
         "retail": 37.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.4,
         "discount": 0.0,
@@ -14789,7 +14789,7 @@
         "retail": 37.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.74,
         "discount": 0.0,
@@ -14985,7 +14985,7 @@
         "retail": 37.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.74,
         "discount": 0.0,
@@ -15181,7 +15181,7 @@
         "retail": 37.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.81,
         "discount": 0.0,
@@ -15377,7 +15377,7 @@
         "retail": 37.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.64,
         "discount": 0.0,
@@ -15573,7 +15573,7 @@
         "retail": 37.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.55,
         "discount": 0.0,
@@ -15769,7 +15769,7 @@
         "retail": 37.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.52,
         "discount": 0.0,
@@ -15948,7 +15948,7 @@
         "retail": 37.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.52,
         "discount": 0.0,
@@ -16127,7 +16127,7 @@
         "retail": 37.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.96,
         "discount": 0.0,
@@ -16306,7 +16306,7 @@
         "retail": 37.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.41,
         "discount": 0.0,
@@ -16485,7 +16485,7 @@
         "retail": 36.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.48,
         "discount": 0.0,
@@ -16664,7 +16664,7 @@
         "retail": 36.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.46,
         "discount": 0.0,
@@ -16843,7 +16843,7 @@
         "retail": 36.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.74,
         "discount": 0.0,
@@ -17022,7 +17022,7 @@
         "retail": 36.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.53,
         "discount": 0.0,
@@ -17201,7 +17201,7 @@
         "retail": 36.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.41,
         "discount": 0.0,
@@ -17380,7 +17380,7 @@
         "retail": 36.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.25,
         "discount": 0.0,
@@ -17559,7 +17559,7 @@
         "retail": 36.19
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.99,
         "discount": 0.0,
@@ -17738,7 +17738,7 @@
         "retail": 36.19
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.25,
         "discount": 0.0,
@@ -17917,7 +17917,7 @@
         "retail": 36.19
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.28,
         "discount": 0.0,
@@ -18096,7 +18096,7 @@
         "retail": 36.19
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.32,
         "discount": 0.0,
@@ -18275,7 +18275,7 @@
         "retail": 36.19
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.18,
         "discount": 0.0,
@@ -18454,7 +18454,7 @@
         "retail": 35.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.02,
         "discount": 0.0,
@@ -18633,7 +18633,7 @@
         "retail": 35.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.03,
         "discount": 0.0,
@@ -18812,7 +18812,7 @@
         "retail": 35.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.35,
         "discount": 0.0,
@@ -18991,7 +18991,7 @@
         "retail": 35.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.73,
         "discount": 0.0,
@@ -19170,7 +19170,7 @@
         "retail": 35.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.67,
         "discount": 0.0,
@@ -19349,7 +19349,7 @@
         "retail": 35.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.07,
         "discount": 0.0,
@@ -19528,7 +19528,7 @@
         "retail": 35.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.43,
         "discount": 0.0,
@@ -19707,7 +19707,7 @@
         "retail": 34.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.28,
         "discount": 0.0,
@@ -19886,7 +19886,7 @@
         "retail": 34.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.31,
         "discount": 0.0,
@@ -20065,7 +20065,7 @@
         "retail": 34.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.53,
         "discount": 0.0,
@@ -20244,7 +20244,7 @@
         "retail": 34.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.93,
         "discount": 0.0,
@@ -20423,7 +20423,7 @@
         "retail": 35.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.2,
         "discount": 0.0,
@@ -20602,7 +20602,7 @@
         "retail": 35.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.56,
         "discount": 0.0,
@@ -20781,7 +20781,7 @@
         "retail": 35.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.54,
         "discount": 0.0,
@@ -20960,7 +20960,7 @@
         "retail": 35.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.69,
         "discount": 0.0,
@@ -21139,7 +21139,7 @@
         "retail": 35.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.69,
         "discount": 0.0,
@@ -21318,7 +21318,7 @@
         "retail": 35.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.87,
         "discount": 0.0,
@@ -21497,7 +21497,7 @@
         "retail": 35.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.13,
         "discount": 0.0,
@@ -21676,7 +21676,7 @@
         "retail": 35.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.37,
         "discount": 0.0,
@@ -21855,7 +21855,7 @@
         "retail": 36.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.3,
         "discount": 0.0,
@@ -22034,7 +22034,7 @@
         "retail": 36.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.2,
         "discount": 0.0,
@@ -22213,7 +22213,7 @@
         "retail": 36.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.17,
         "discount": 0.0,
@@ -22392,7 +22392,7 @@
         "retail": 36.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.33,
         "discount": 0.0,
@@ -22571,7 +22571,7 @@
         "retail": 36.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.63,
         "discount": 0.0,
@@ -22750,7 +22750,7 @@
         "retail": 36.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.72,
         "discount": 0.0,
@@ -22929,7 +22929,7 @@
         "retail": 36.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.49,
         "discount": 0.0,
@@ -23108,7 +23108,7 @@
         "retail": 36.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.73,
         "discount": 0.0,
@@ -23287,7 +23287,7 @@
         "retail": 36.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.8,
         "discount": 0.0,
@@ -23466,7 +23466,7 @@
         "retail": 36.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.52,
         "discount": 0.0,
@@ -23645,7 +23645,7 @@
         "retail": 36.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.67,
         "discount": 0.0,
@@ -23824,7 +23824,7 @@
         "retail": 36.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.37,
         "discount": 0.0,
@@ -24003,7 +24003,7 @@
         "retail": 36.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 24.11,
         "discount": 0.0,
@@ -24182,7 +24182,7 @@
         "retail": 36.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.86,
         "discount": 0.0,
@@ -24361,7 +24361,7 @@
         "retail": 36.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.8,
         "discount": 0.0,
@@ -24540,7 +24540,7 @@
         "retail": 36.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.84,
         "discount": 0.0,
@@ -24719,7 +24719,7 @@
         "retail": 36.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.75,
         "discount": 0.0,
@@ -24898,7 +24898,7 @@
         "retail": 36.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.58,
         "discount": 0.0,
@@ -25077,7 +25077,7 @@
         "retail": 36.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.26,
         "discount": 0.0,
@@ -25256,7 +25256,7 @@
         "retail": 36.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.43,
         "discount": 0.0,
@@ -25435,7 +25435,7 @@
         "retail": 36.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.19,
         "discount": 0.0,
@@ -25614,7 +25614,7 @@
         "retail": 36.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.11,
         "discount": 0.0,
@@ -25793,7 +25793,7 @@
         "retail": 35.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.96,
         "discount": 0.0,
@@ -25972,7 +25972,7 @@
         "retail": 35.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.95,
         "discount": 0.0,
@@ -26151,7 +26151,7 @@
         "retail": 35.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 23.1,
         "discount": 0.0,
@@ -26330,7 +26330,7 @@
         "retail": 35.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.63,
         "discount": 0.0,
@@ -26509,7 +26509,7 @@
         "retail": 35.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.44,
         "discount": 0.0,
@@ -26688,7 +26688,7 @@
         "retail": 35.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.56,
         "discount": 0.0,
@@ -26867,7 +26867,7 @@
         "retail": 35.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.46,
         "discount": 0.0,
@@ -27046,7 +27046,7 @@
         "retail": 34.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.61,
         "discount": 0.0,
@@ -27225,7 +27225,7 @@
         "retail": 34.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.47,
         "discount": 0.0,
@@ -27404,7 +27404,7 @@
         "retail": 34.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.58,
         "discount": 0.0,
@@ -27583,7 +27583,7 @@
         "retail": 34.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.73,
         "discount": 0.0,
@@ -27762,7 +27762,7 @@
         "retail": 34.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.78,
         "discount": 0.0,
@@ -27941,7 +27941,7 @@
         "retail": 34.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.09,
         "discount": 0.0,
@@ -28120,7 +28120,7 @@
         "retail": 34.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 22.05,
         "discount": 0.0,
@@ -28299,7 +28299,7 @@
         "retail": 34.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.99,
         "discount": 0.0,
@@ -28478,7 +28478,7 @@
         "retail": 34.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.88,
         "discount": 0.0,
@@ -28657,7 +28657,7 @@
         "retail": 34.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.25,
         "discount": 0.0,
@@ -28836,7 +28836,7 @@
         "retail": 34.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.62,
         "discount": 0.0,
@@ -29015,7 +29015,7 @@
         "retail": 34.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.52,
         "discount": 0.0,
@@ -29194,7 +29194,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.43,
         "discount": 0.0,
@@ -29373,7 +29373,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.56,
         "discount": 0.0,
@@ -29552,7 +29552,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.71,
         "discount": 0.0,
@@ -29731,7 +29731,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.99,
         "discount": 0.0,
@@ -29910,7 +29910,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.49,
         "discount": 0.0,
@@ -30089,7 +30089,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.15,
         "discount": 0.0,
@@ -30268,7 +30268,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.49,
         "discount": 0.0,
@@ -30447,7 +30447,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.41,
         "discount": 0.0,
@@ -30626,7 +30626,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.39,
         "discount": 0.0,
@@ -30805,7 +30805,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.96,
         "discount": 0.0,
@@ -30984,7 +30984,7 @@
         "retail": 33.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.47,
         "discount": 0.0,
@@ -31163,7 +31163,7 @@
         "retail": 33.49
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.26,
         "discount": 0.0,
@@ -31342,7 +31342,7 @@
         "retail": 32.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.25,
         "discount": 0.0,
@@ -31521,7 +31521,7 @@
         "retail": 32.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.07,
         "discount": 0.0,
@@ -31700,7 +31700,7 @@
         "retail": 32.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.65,
         "discount": 0.0,
@@ -31879,7 +31879,7 @@
         "retail": 32.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.8,
         "discount": 0.0,
@@ -32058,7 +32058,7 @@
         "retail": 32.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.73,
         "discount": 0.0,
@@ -32237,7 +32237,7 @@
         "retail": 32.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.55,
         "discount": 0.0,
@@ -32416,7 +32416,7 @@
         "retail": 32.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.56,
         "discount": 0.0,
@@ -32595,7 +32595,7 @@
         "retail": 32.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.78,
         "discount": 0.0,
@@ -32774,7 +32774,7 @@
         "retail": 33.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.05,
         "discount": 0.0,
@@ -32953,7 +32953,7 @@
         "retail": 33.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.93,
         "discount": 0.0,
@@ -33132,7 +33132,7 @@
         "retail": 33.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.83,
         "discount": 0.0,
@@ -33311,7 +33311,7 @@
         "retail": 33.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.91,
         "discount": 0.0,
@@ -33490,7 +33490,7 @@
         "retail": 33.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.96,
         "discount": 0.0,
@@ -33669,7 +33669,7 @@
         "retail": 33.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.68,
         "discount": 0.0,
@@ -33848,7 +33848,7 @@
         "retail": 32.89
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.56,
         "discount": 0.0,
@@ -34027,7 +34027,7 @@
         "retail": 32.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.6,
         "discount": 0.0,
@@ -34206,7 +34206,7 @@
         "retail": 32.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 18.51,
         "discount": 0.0,
@@ -34385,7 +34385,7 @@
         "retail": 32.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.03,
         "discount": 0.0,
@@ -34564,7 +34564,7 @@
         "retail": 32.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.41,
         "discount": 0.0,
@@ -34743,7 +34743,7 @@
         "retail": 32.89
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.99,
         "discount": 0.0,
@@ -34922,7 +34922,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.58,
         "discount": 0.0,
@@ -35101,7 +35101,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.76,
         "discount": 0.0,
@@ -35280,7 +35280,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.54,
         "discount": 0.0,
@@ -35459,7 +35459,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.43,
         "discount": 0.0,
@@ -35638,7 +35638,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.62,
         "discount": 0.0,
@@ -35817,7 +35817,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.03,
         "discount": 0.0,
@@ -35996,7 +35996,7 @@
         "retail": 33.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.64,
         "discount": 0.0,
@@ -36175,7 +36175,7 @@
         "retail": 33.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.57,
         "discount": 0.0,
@@ -36354,7 +36354,7 @@
         "retail": 33.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.69,
         "discount": 0.0,
@@ -36533,7 +36533,7 @@
         "retail": 33.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.67,
         "discount": 0.0,
@@ -36712,7 +36712,7 @@
         "retail": 33.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.07,
         "discount": 0.0,
@@ -36891,7 +36891,7 @@
         "retail": 33.09
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.43,
         "discount": 0.0,
@@ -37070,7 +37070,7 @@
         "retail": 33.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.53,
         "discount": 0.0,
@@ -37249,7 +37249,7 @@
         "retail": 33.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.27,
         "discount": 0.0,
@@ -37428,7 +37428,7 @@
         "retail": 33.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.14,
         "discount": 0.0,
@@ -37607,7 +37607,7 @@
         "retail": 32.89
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.2,
         "discount": 0.0,
@@ -37786,7 +37786,7 @@
         "retail": 32.89
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.22,
         "discount": 0.0,
@@ -37965,7 +37965,7 @@
         "retail": 32.89
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.07,
         "discount": 0.0,
@@ -38144,7 +38144,7 @@
         "retail": 33.19
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.37,
         "discount": 0.0,
@@ -38306,7 +38306,7 @@
         "retail": 33.19
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.39,
         "discount": 0.0,
@@ -38468,7 +38468,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.43,
         "discount": 0.0,
@@ -38630,7 +38630,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.53,
         "discount": 0.0,
@@ -38792,7 +38792,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.18,
         "discount": 0.0,
@@ -38954,7 +38954,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.17,
         "discount": 0.0,
@@ -39116,7 +39116,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.03,
         "discount": 0.0,
@@ -39278,7 +39278,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.97,
         "discount": 0.0,
@@ -39440,7 +39440,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.17,
         "discount": 0.0,
@@ -39602,7 +39602,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.86,
         "discount": 0.0,
@@ -39764,7 +39764,7 @@
         "retail": 33.29
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.79,
         "discount": 0.0,
@@ -39926,7 +39926,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.13,
         "discount": 0.0,
@@ -40088,7 +40088,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.87,
         "discount": 0.0,
@@ -40250,7 +40250,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.93,
         "discount": 0.0,
@@ -40412,7 +40412,7 @@
         "retail": 33.59
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 21.15,
         "discount": 0.0,
@@ -40574,7 +40574,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.96,
         "discount": 0.0,
@@ -40736,7 +40736,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.9,
         "discount": 0.0,
@@ -40898,7 +40898,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.7,
         "discount": 0.0,
@@ -41060,7 +41060,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.43,
         "discount": 0.0,
@@ -41222,7 +41222,7 @@
         "retail": 33.99
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.31,
         "discount": 0.0,
@@ -41384,7 +41384,7 @@
         "retail": 33.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.4,
         "discount": 0.0,
@@ -41546,7 +41546,7 @@
         "retail": 33.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.3,
         "discount": 0.0,
@@ -41708,7 +41708,7 @@
         "retail": 33.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.21,
         "discount": 0.0,
@@ -41870,7 +41870,7 @@
         "retail": 33.69
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.96,
         "discount": 0.0,
@@ -42032,7 +42032,7 @@
         "retail": 33.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.0,
         "discount": 0.0,
@@ -42194,7 +42194,7 @@
         "retail": 33.39
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 19.96,
         "discount": 0.0,
@@ -42356,7 +42356,7 @@
         "retail": 33.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.31,
         "discount": 0.0,
@@ -42518,7 +42518,7 @@
         "retail": 33.79
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.62,
         "discount": 0.0,
@@ -42680,7 +42680,7 @@
         "retail": 34.19
       },
       {
-        "id": "HDIESEL",
+        "id": "B7",
         "name": "H-DIESEL B7",
         "ex_refinery": 20.79,
         "discount": 0.0,

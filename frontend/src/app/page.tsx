@@ -93,6 +93,20 @@ export default function OilPriceDashboard() {
 
   const latestDay = allDays[allDays.length - 1] ?? null;
 
+  // Full catalog of all historical + current products (includes H-DIESEL, B7, B10, B20, etc.)
+  const allProductCatalog = useMemo(() => {
+    const map = new Map<string, string>();
+    if (latestDay) {
+      latestDay.products.forEach((p) => map.set(p.id, p.name));
+    }
+    allDays.forEach((d) => {
+      d.products.forEach((p) => {
+        if (!map.has(p.id)) map.set(p.id, p.name);
+      });
+    });
+    return Array.from(map.entries()).map(([id, name]) => ({ id, name }));
+  }, [allDays, latestDay]);
+
   const filteredDays = useMemo(() => {
     if (!allDays.length) return [];
     const s = startDate || allDays[0].date;
@@ -335,8 +349,8 @@ export default function OilPriceDashboard() {
 
   // Explorer table rows
   const explorerRows = useMemo(() => {
-    if (!filteredDays.length || !latestDay) return [];
-    const ids = latestDay.products.map((p) => p.id);
+    if (!filteredDays.length || !allProductCatalog.length) return [];
+    const ids = allProductCatalog.map((p) => p.id);
     const getComp = (p: EppoProduct | undefined) => {
       if (!p) return 0;
       if (explorerComp === "excise_tax") return +(p.excise_tax + p.m_tax).toFixed(3);
@@ -368,11 +382,11 @@ export default function OilPriceDashboard() {
     });
 
     return explorerGranularity === "change_only" ? mapped.filter((r) => r.changed) : mapped;
-  }, [filteredDays, latestDay, explorerComp, explorerGranularity]);
+  }, [filteredDays, allProductCatalog, explorerComp, explorerGranularity]);
 
   const exportCsv = () => {
-    if (!latestDay || !explorerRows.length) return;
-    const prods = latestDay.products;
+    if (!allProductCatalog.length || !explorerRows.length) return;
+    const prods = allProductCatalog;
     const lines = [["date", "note", ...prods.map((p) => `"${p.name}"`)].join(",")];
     explorerRows.forEach((r) => {
       lines.push([r.date, `"${r.note || ""}"`, ...prods.map((p) => r.values[p.id] ?? 0)].join(","));
@@ -521,7 +535,7 @@ export default function OilPriceDashboard() {
                     onChange={(e) => setSelectedFuelId(e.target.value)}
                     className="text-xs rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-2.5 py-1.5"
                   >
-                    {latestDay.products.map((p) => (
+                    {allProductCatalog.map((p) => (
                       <option key={p.id} value={p.id}>
                         {p.name}
                       </option>
@@ -566,7 +580,7 @@ export default function OilPriceDashboard() {
                     onChange={(e) => setSelectedFuelId(e.target.value)}
                     className="text-xs rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-2.5 py-1.5"
                   >
-                    {latestDay.products.map((p) => (
+                    {allProductCatalog.map((p) => (
                       <option key={p.id} value={p.id}>
                         {p.name}
                       </option>
@@ -627,7 +641,7 @@ export default function OilPriceDashboard() {
                     onChange={(e) => setDeepDiveFuel(e.target.value)}
                     className="text-xs font-medium rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-1.5"
                   >
-                    {latestDay.products.map((p) => (
+                    {allProductCatalog.map((p) => (
                       <option key={p.id} value={p.id}>
                         {p.name}
                       </option>
@@ -755,7 +769,7 @@ export default function OilPriceDashboard() {
                       <tr>
                         <th className="px-3 py-2.5 whitespace-nowrap">วันที่</th>
                         <th className="px-3 py-2.5 whitespace-nowrap">หมายเหตุ</th>
-                        {latestDay.products.map((p) => (
+                        {allProductCatalog.map((p) => (
                           <th key={p.id} className="px-3 py-2.5 text-right whitespace-nowrap">
                             {p.name}
                           </th>
@@ -775,7 +789,7 @@ export default function OilPriceDashboard() {
                           <tr key={r.date} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
                             <td className="px-3 py-2 font-mono whitespace-nowrap">{r.date}</td>
                             <td className="px-3 py-2 whitespace-nowrap text-amber-700 dark:text-amber-300">{r.note || "—"}</td>
-                            {latestDay.products.map((p) => (
+                            {allProductCatalog.map((p) => (
                               <td key={p.id} className="px-3 py-2 text-right font-mono tabular-nums">
                                 {(r.values[p.id] ?? 0).toFixed(2)}
                               </td>
@@ -783,7 +797,7 @@ export default function OilPriceDashboard() {
                           </tr>
                         ))
                       : explorerRows.slice((explorerPage - 1) * 50, explorerPage * 50).flatMap((r) =>
-                          latestDay.products.map((p) => (
+                          allProductCatalog.map((p) => (
                             <tr key={`${r.date}-${p.id}`}>
                               <td className="px-3 py-2 font-mono">{r.date}</td>
                               <td className="px-3 py-2">{p.name}</td>
