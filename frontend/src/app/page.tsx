@@ -28,7 +28,7 @@ export default function OilPriceDashboard() {
   const [selectedFuelId, setSelectedFuelId] = useState("G95");
   const [trendMetric, setTrendMetric] = useState<"oil_fund" | "retail" | "mkt_margin">("oil_fund");
   const [trendYear, setTrendYear] = useState<string>("2026");
-  const [trendChartType, setTrendChartType] = useState<"bar" | "line" | "stacked_area">("line");
+  const [trendChartType, setTrendChartType] = useState<"bar" | "line" | "stacked_bar">("line");
 
   // Page 3 state
   const [deepDiveFuel, setDeepDiveFuel] = useState("G95");
@@ -271,67 +271,70 @@ export default function OilPriceDashboard() {
               ]
             : [
                 {
+                  type: "line" as const,
                   label: "ราคาขายปลีกสุทธิ (Retail)",
                   data: dailyRows.map((r) => r.prod.retail),
                   borderColor: isDark ? "#f8fafc" : "#0f172a",
                   backgroundColor: "transparent",
                   fill: false,
                   stack: "retail",
-                  borderWidth: 2.5,
-                  borderDash: [6, 4],
+                  borderWidth: 2,
+                  borderDash: [5, 4],
+                  pointRadius: 0,
+                  order: 0,
                 },
                 {
                   label: "ราคาหน้าโรงกลั่น (หักส่วนลด)",
                   data: dailyRows.map((r) => +(r.prod.ex_refinery + r.prod.discount).toFixed(2)),
-                  borderColor: "#1e40af",
                   backgroundColor: "#2563eb",
-                  fill: "stack",
                   stack: "components",
-                  borderWidth: 1,
+                  barPercentage: 1.0,
+                  categoryPercentage: 0.96,
+                  order: 1,
                 },
                 {
                   label: "ภาษีสรรพสามิต+เทศบาล",
                   data: dailyRows.map((r) => +(r.prod.excise_tax + r.prod.m_tax).toFixed(2)),
-                  borderColor: "#6d28d9",
                   backgroundColor: "#7c3aed",
-                  fill: "stack",
                   stack: "components",
-                  borderWidth: 1,
+                  barPercentage: 1.0,
+                  categoryPercentage: 0.96,
+                  order: 1,
                 },
                 {
                   label: "กองทุนน้ำมัน+อนุรักษ์ฯ",
                   data: dailyRows.map((r) => +(r.prod.oil_fund + r.prod.cons_fund).toFixed(2)),
-                  borderColor: "#d97706",
                   backgroundColor: "#f59e0b",
-                  fill: "stack",
                   stack: "components",
-                  borderWidth: 1,
+                  barPercentage: 1.0,
+                  categoryPercentage: 0.96,
+                  order: 1,
                 },
                 {
                   label: "ค่าการตลาด",
                   data: dailyRows.map((r) => r.prod.mkt_margin),
-                  borderColor: "#047857",
                   backgroundColor: "#10b981",
-                  fill: "stack",
                   stack: "components",
-                  borderWidth: 1,
+                  barPercentage: 1.0,
+                  categoryPercentage: 0.96,
+                  order: 1,
                 },
                 {
                   label: "VAT 7% (WS+MM)",
                   data: dailyRows.map((r) => r.prod.vat),
-                  borderColor: "#be123c",
                   backgroundColor: "#f43f5e",
-                  fill: "stack",
                   stack: "components",
-                  borderWidth: 1,
+                  barPercentage: 1.0,
+                  categoryPercentage: 0.96,
+                  order: 1,
                 },
               ];
 
         chartsRef.current.trend = new Chart(trendCanvasRef.current, {
-          type: "line",
+          type: trendChartType === "stacked_bar" ? "bar" : "line",
           data: {
             labels: dailyRows.map((r) => r.day.date + (r.day.note ? ` (${r.day.note})` : "")),
-            datasets,
+            datasets: datasets as any,
           },
           options: {
             animation: false,
@@ -340,6 +343,7 @@ export default function OilPriceDashboard() {
             maintainAspectRatio: false,
             scales: {
               x: {
+                stacked: trendChartType === "stacked_bar",
                 grid: { display: false },
                 ticks: {
                   color: textColor,
@@ -364,7 +368,7 @@ export default function OilPriceDashboard() {
                 },
               },
               y: {
-                stacked: trendChartType === "stacked_area",
+                stacked: trendChartType === "stacked_bar",
                 grid: { color: gridColor },
                 ticks: { color: textColor },
               },
@@ -741,12 +745,12 @@ export default function OilPriceDashboard() {
                   <div className="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-0.5 bg-slate-50 dark:bg-slate-800">
                     {[
                       { id: "line", label: "Line (รายวัน)" },
-                      { id: "stacked_area", label: "Stacked Area (รายวัน)" },
+                      { id: "stacked_bar", label: "Stacked Bar (รายวัน)" },
                       { id: "bar", label: "Bar (เฉลี่ยรายเดือน)" },
                     ].map((ct) => (
                       <button
                         key={ct.id}
-                        onClick={() => setTrendChartType(ct.id as "bar" | "line" | "stacked_area")}
+                        onClick={() => setTrendChartType(ct.id as "bar" | "line" | "stacked_bar")}
                         className={`px-2.5 py-1 text-xs font-medium rounded-md ${
                           trendChartType === ct.id ? "bg-white dark:bg-slate-700 shadow-sm text-sky-700 dark:text-sky-300" : "text-slate-500"
                         }`}
@@ -755,7 +759,7 @@ export default function OilPriceDashboard() {
                       </button>
                     ))}
                   </div>
-                  {trendChartType !== "stacked_area" && (
+                  {trendChartType !== "stacked_bar" && (
                     <div className="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-0.5 bg-slate-50 dark:bg-slate-800">
                       {[
                         { id: "oil_fund", label: "กองทุนน้ำมัน" },
