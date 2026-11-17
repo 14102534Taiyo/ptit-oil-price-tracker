@@ -1,14 +1,19 @@
 /** @type {import('next').NextConfig} */
-const isGhPages = process.env.DEPLOY_TARGET === 'gh-pages';
-const repoName = process.env.GITHUB_REPOSITORY ? process.env.GITHUB_REPOSITORY.split('/')[1] : 'ptit-oil-price-tracker';
+const isGhPages = process.env.DEPLOY_TARGET === "gh-pages";
+const basePath = isGhPages ? "/ptit-oil-price-tracker" : "";
 
 const nextConfig = {
-  output: 'export',
+  reactStrictMode: true,
+  output: "export",
   images: {
     unoptimized: true,
   },
-  basePath: isGhPages ? `/${repoName}` : '',
-  assetPrefix: isGhPages ? `/${repoName}/` : '',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
+  basePath,
+  assetPrefix: isGhPages ? "/ptit-oil-price-tracker/" : "",
+  trailingSlash: true,
 };
 
 export default nextConfig;
