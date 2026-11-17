@@ -4,7 +4,7 @@
     "exchange_rate": 30.3313,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 15.0,
         "discount": 0.0,
@@ -200,7 +200,7 @@
     "exchange_rate": 30.2826,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.75,
         "discount": 0.0,
@@ -396,7 +396,7 @@
     "exchange_rate": 30.3148,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 15.0,
         "discount": 0.0,
@@ -592,7 +592,7 @@
     "exchange_rate": 30.3316,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 15.35,
         "discount": 0.0,
@@ -788,7 +788,7 @@
     "exchange_rate": 30.3215,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 15.21,
         "discount": 0.0,
@@ -984,7 +984,7 @@
     "exchange_rate": 30.4548,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 15.05,
         "discount": 0.0,
@@ -1180,7 +1180,7 @@
     "exchange_rate": 30.477,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.66,
         "discount": 0.0,
@@ -1376,7 +1376,7 @@
     "exchange_rate": 30.446,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.63,
         "discount": 0.0,
@@ -1572,7 +1572,7 @@
     "exchange_rate": 30.366,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.63,
         "discount": 0.0,
@@ -1768,7 +1768,7 @@
     "exchange_rate": 30.4261,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.53,
         "discount": 0.0,
@@ -1964,7 +1964,7 @@
     "exchange_rate": 30.4331,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.37,
         "discount": 0.0,
@@ -2160,7 +2160,7 @@
     "exchange_rate": 30.4544,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.28,
         "discount": 0.0,
@@ -2356,7 +2356,7 @@
     "exchange_rate": 30.6145,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.41,
         "discount": 0.0,
@@ -2552,7 +2552,7 @@
     "exchange_rate": 30.574,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.47,
         "discount": 0.0,
@@ -2748,7 +2748,7 @@
     "exchange_rate": 30.5348,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.27,
         "discount": 0.0,
@@ -2944,7 +2944,7 @@
     "exchange_rate": 30.5741,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.29,
         "discount": 0.0,
@@ -3140,7 +3140,7 @@
     "exchange_rate": 30.6139,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.11,
         "discount": 0.0,
@@ -3336,7 +3336,7 @@
     "exchange_rate": 30.6763,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.05,
         "discount": 0.0,
@@ -3532,7 +3532,7 @@
     "exchange_rate": 30.8276,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.12,
         "discount": 0.0,
@@ -3728,7 +3728,7 @@
     "exchange_rate": 30.9438,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.51,
         "discount": 0.0,
@@ -3924,7 +3924,7 @@
     "exchange_rate": 31.0306,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.47,
         "discount": 0.0,
@@ -4120,7 +4120,7 @@
     "exchange_rate": 31.3219,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.6,
         "discount": 0.0,
@@ -4316,7 +4316,7 @@
     "exchange_rate": 31.2959,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.67,
         "discount": 0.0,
@@ -4512,7 +4512,7 @@
     "exchange_rate": 31.3541,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.52,
         "discount": 0.0,
@@ -4708,7 +4708,7 @@
     "exchange_rate": 31.1895,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.29,
         "discount": 0.0,
@@ -4904,7 +4904,7 @@
     "exchange_rate": 31.2612,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.13,
         "discount": 0.0,
@@ -5100,7 +5100,7 @@
     "exchange_rate": 31.2457,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.31,
         "discount": 0.0,
@@ -5296,7 +5296,7 @@
     "exchange_rate": 31.3462,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.56,
         "discount": 0.0,
@@ -5492,7 +5492,7 @@
     "exchange_rate": 31.3821,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.6,
         "discount": 0.0,
@@ -5688,7 +5688,7 @@
     "exchange_rate": 31.3299,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.59,
         "discount": 0.0,
@@ -5884,7 +5884,7 @@
     "exchange_rate": 31.3194,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.64,
         "discount": 0.0,
@@ -6080,7 +6080,7 @@
     "exchange_rate": 31.3263,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.66,
         "discount": 0.0,
@@ -6276,7 +6276,7 @@
     "exchange_rate": 31.3481,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.76,
         "discount": 0.0,
@@ -6472,7 +6472,7 @@
     "exchange_rate": 31.3899,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.65,
         "discount": 0.0,
@@ -6668,7 +6668,7 @@
     "exchange_rate": 31.3618,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.79,
         "discount": 0.0,
@@ -6864,7 +6864,7 @@
     "exchange_rate": 31.4741,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.11,
         "discount": 0.0,
@@ -7060,7 +7060,7 @@
     "exchange_rate": 31.7577,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 14.12,
         "discount": 0.0,
@@ -7256,7 +7256,7 @@
     "exchange_rate": 31.8995,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.83,
         "discount": 0.0,
@@ -7452,7 +7452,7 @@
     "exchange_rate": 31.8135,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.71,
         "discount": 0.0,
@@ -7648,7 +7648,7 @@
     "exchange_rate": 32.0174,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 13.42,
         "discount": 0.0,
@@ -7844,7 +7844,7 @@
     "exchange_rate": 31.989,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 12.79,
         "discount": 0.0,
@@ -8040,7 +8040,7 @@
     "exchange_rate": 31.7804,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 12.24,
         "discount": 0.0,
@@ -8236,7 +8236,7 @@
     "exchange_rate": 31.5587,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 12.14,
         "discount": 0.0,
@@ -8432,7 +8432,7 @@
     "exchange_rate": 31.6687,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 12.44,
         "discount": 0.0,
@@ -8628,7 +8628,7 @@
     "exchange_rate": 31.5423,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 12.37,
         "discount": 0.0,
@@ -8824,7 +8824,7 @@
     "exchange_rate": 31.6017,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 12.38,
         "discount": 0.0,
@@ -9020,7 +9020,7 @@
     "exchange_rate": 31.7513,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 12.2,
         "discount": 0.0,
@@ -9216,7 +9216,7 @@
     "exchange_rate": 31.6505,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.47,
         "discount": 0.0,
@@ -9412,7 +9412,7 @@
     "exchange_rate": 31.5859,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.73,
         "discount": 0.0,
@@ -9608,7 +9608,7 @@
     "exchange_rate": 31.6471,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.69,
         "discount": 0.0,
@@ -9804,7 +9804,7 @@
     "exchange_rate": 31.7063,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.21,
         "discount": 0.0,
@@ -10000,7 +10000,7 @@
     "exchange_rate": 32.1014,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.76,
         "discount": 0.0,
@@ -10196,7 +10196,7 @@
     "exchange_rate": 32.1249,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 7.78,
         "discount": 0.0,
@@ -10392,7 +10392,7 @@
     "exchange_rate": 32.2936,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 7.25,
         "discount": 0.0,
@@ -10588,7 +10588,7 @@
     "exchange_rate": 32.4788,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 6.92,
         "discount": 0.0,
@@ -10784,7 +10784,7 @@
     "exchange_rate": 32.8006,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 6.29,
         "discount": 0.0,
@@ -10980,7 +10980,7 @@
     "exchange_rate": 32.6801,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 6.61,
         "discount": 0.0,
@@ -11176,7 +11176,7 @@
     "exchange_rate": 33.0963,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 6.07,
         "discount": 0.0,
@@ -11372,7 +11372,7 @@
     "exchange_rate": 33.0299,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.66,
         "discount": 0.0,
@@ -11568,7 +11568,7 @@
     "exchange_rate": 32.9944,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.52,
         "discount": 0.0,
@@ -11764,7 +11764,7 @@
     "exchange_rate": 32.9471,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.47,
         "discount": 0.0,
@@ -11960,7 +11960,7 @@
     "exchange_rate": 32.6139,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.53,
         "discount": 0.0,
@@ -12156,7 +12156,7 @@
     "exchange_rate": 32.8103,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.23,
         "discount": 0.0,
@@ -12352,7 +12352,7 @@
     "exchange_rate": 32.8298,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.32,
         "discount": 0.0,
@@ -12548,7 +12548,7 @@
     "exchange_rate": 33.0476,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.08,
         "discount": 0.0,
@@ -12744,7 +12744,7 @@
     "exchange_rate": 33.2603,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.27,
         "discount": 0.0,
@@ -12940,7 +12940,7 @@
     "exchange_rate": 33.0585,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.7,
         "discount": 0.0,
@@ -13136,7 +13136,7 @@
     "exchange_rate": 32.9859,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.79,
         "discount": 0.0,
@@ -13332,7 +13332,7 @@
     "exchange_rate": 32.9837,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.32,
         "discount": 0.0,
@@ -13528,7 +13528,7 @@
     "exchange_rate": 32.9471,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.2,
         "discount": 0.0,
@@ -13724,7 +13724,7 @@
     "exchange_rate": 32.8579,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.13,
         "discount": 0.0,
@@ -13920,7 +13920,7 @@
     "exchange_rate": 32.9153,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 4.75,
         "discount": 0.0,
@@ -14116,7 +14116,7 @@
     "exchange_rate": 32.9226,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 4.7,
         "discount": 0.0,
@@ -14312,7 +14312,7 @@
     "exchange_rate": 32.7917,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 4.96,
         "discount": 0.0,
@@ -14508,7 +14508,7 @@
     "exchange_rate": 32.8712,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.32,
         "discount": 0.0,
@@ -14704,7 +14704,7 @@
     "exchange_rate": 32.6841,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.35,
         "discount": 0.0,
@@ -14900,7 +14900,7 @@
     "exchange_rate": 32.6563,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.51,
         "discount": 0.0,
@@ -15096,7 +15096,7 @@
     "exchange_rate": 32.7235,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 4.93,
         "discount": 0.0,
@@ -15292,7 +15292,7 @@
     "exchange_rate": 32.6694,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 4.34,
         "discount": 0.0,
@@ -15488,7 +15488,7 @@
     "exchange_rate": 32.5049,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 4.89,
         "discount": 0.0,
@@ -15684,7 +15684,7 @@
     "exchange_rate": 32.6036,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 4.85,
         "discount": 0.0,
@@ -15880,7 +15880,7 @@
     "exchange_rate": 32.6204,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 4.97,
         "discount": 0.0,
@@ -16076,7 +16076,7 @@
     "exchange_rate": 32.659,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 4.9,
         "discount": 0.0,
@@ -16272,7 +16272,7 @@
     "exchange_rate": 32.6002,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.09,
         "discount": 0.0,
@@ -16468,7 +16468,7 @@
     "exchange_rate": 32.5458,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.59,
         "discount": 0.0,
@@ -16664,7 +16664,7 @@
     "exchange_rate": 32.5458,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 5.64,
         "discount": 0.0,
@@ -16860,7 +16860,7 @@
     "exchange_rate": 32.5532,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 6.71,
         "discount": 0.0,
@@ -17056,7 +17056,7 @@
     "exchange_rate": 32.6182,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 6.72,
         "discount": 0.0,
@@ -17252,7 +17252,7 @@
     "exchange_rate": 32.3306,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 7.23,
         "discount": 0.0,
@@ -17448,7 +17448,7 @@
     "exchange_rate": 32.3353,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 7.36,
         "discount": 0.0,
@@ -17644,7 +17644,7 @@
     "exchange_rate": 32.2466,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 7.09,
         "discount": 0.0,
@@ -17840,7 +17840,7 @@
     "exchange_rate": 32.2589,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 7.15,
         "discount": 0.0,
@@ -18036,7 +18036,7 @@
     "exchange_rate": 32.2461,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 7.52,
         "discount": 0.0,
@@ -18232,7 +18232,7 @@
     "exchange_rate": 32.2094,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.01,
         "discount": 0.0,
@@ -18428,7 +18428,7 @@
     "exchange_rate": 32.1134,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.31,
         "discount": 0.0,
@@ -18624,7 +18624,7 @@
     "exchange_rate": 32.0531,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.36,
         "discount": 0.0,
@@ -18820,7 +18820,7 @@
     "exchange_rate": 32.0295,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.46,
         "discount": 0.0,
@@ -19016,7 +19016,7 @@
     "exchange_rate": 32.034,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.17,
         "discount": 0.0,
@@ -19212,7 +19212,7 @@
     "exchange_rate": 32.118,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.19,
         "discount": 0.0,
@@ -19408,7 +19408,7 @@
     "exchange_rate": 32.0953,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.26,
         "discount": 0.0,
@@ -19604,7 +19604,7 @@
     "exchange_rate": 32.0535,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.23,
         "discount": 0.0,
@@ -19800,7 +19800,7 @@
     "exchange_rate": 32.0556,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.03,
         "discount": 0.0,
@@ -19996,7 +19996,7 @@
     "exchange_rate": 32.0178,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.15,
         "discount": 0.0,
@@ -20192,7 +20192,7 @@
     "exchange_rate": 31.9179,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.54,
         "discount": 0.0,
@@ -20388,7 +20388,7 @@
     "exchange_rate": 31.7705,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.29,
         "discount": 0.0,
@@ -20584,7 +20584,7 @@
     "exchange_rate": 31.7796,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.29,
         "discount": 0.0,
@@ -20780,7 +20780,7 @@
     "exchange_rate": 31.6782,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.49,
         "discount": 0.0,
@@ -20976,7 +20976,7 @@
     "exchange_rate": 31.6544,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.99,
         "discount": 0.0,
@@ -21172,7 +21172,7 @@
     "exchange_rate": 31.5412,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.88,
         "discount": 0.0,
@@ -21368,7 +21368,7 @@
     "exchange_rate": 31.3927,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.74,
         "discount": 0.0,
@@ -21564,7 +21564,7 @@
     "exchange_rate": 31.1199,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.57,
         "discount": 0.0,
@@ -21760,7 +21760,7 @@
     "exchange_rate": 31.2408,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.22,
         "discount": 0.0,
@@ -21956,7 +21956,7 @@
     "exchange_rate": 31.1798,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.08,
         "discount": 0.0,
@@ -22152,7 +22152,7 @@
     "exchange_rate": 31.2256,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.31,
         "discount": 0.0,
@@ -22348,7 +22348,7 @@
     "exchange_rate": 31.3187,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.85,
         "discount": 0.0,
@@ -22544,7 +22544,7 @@
     "exchange_rate": 31.3047,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.94,
         "discount": 0.0,
@@ -22740,7 +22740,7 @@
     "exchange_rate": 31.1949,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.14,
         "discount": 0.0,
@@ -22936,7 +22936,7 @@
     "exchange_rate": 31.1708,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.12,
         "discount": 0.0,
@@ -23132,7 +23132,7 @@
     "exchange_rate": 31.157,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.25,
         "discount": 0.0,
@@ -23328,7 +23328,7 @@
     "exchange_rate": 31.0339,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.1,
         "discount": 0.0,
@@ -23524,7 +23524,7 @@
     "exchange_rate": 31.0549,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.43,
         "discount": 0.0,
@@ -23720,7 +23720,7 @@
     "exchange_rate": 31.0708,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.31,
         "discount": 0.0,
@@ -23916,7 +23916,7 @@
     "exchange_rate": 31.079,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.0,
         "discount": 0.0,
@@ -24112,7 +24112,7 @@
     "exchange_rate": 31.0658,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.17,
         "discount": 0.0,
@@ -24308,7 +24308,7 @@
     "exchange_rate": 31.1319,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.51,
         "discount": 0.0,
@@ -24504,7 +24504,7 @@
     "exchange_rate": 31.2173,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.64,
         "discount": 0.0,
@@ -24700,7 +24700,7 @@
     "exchange_rate": 31.2458,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.9,
         "discount": 0.0,
@@ -24896,7 +24896,7 @@
     "exchange_rate": 31.453,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.82,
         "discount": 0.0,
@@ -25092,7 +25092,7 @@
     "exchange_rate": 31.3307,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.87,
         "discount": 0.0,
@@ -25288,7 +25288,7 @@
     "exchange_rate": 31.4603,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.91,
         "discount": 0.0,
@@ -25484,7 +25484,7 @@
     "exchange_rate": 31.4624,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.81,
         "discount": 0.0,
@@ -25680,7 +25680,7 @@
     "exchange_rate": 31.6652,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.62,
         "discount": 0.0,
@@ -25876,7 +25876,7 @@
     "exchange_rate": 31.6737,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.76,
         "discount": 0.0,
@@ -26072,7 +26072,7 @@
     "exchange_rate": 31.8345,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.88,
         "discount": 0.0,
@@ -26268,7 +26268,7 @@
     "exchange_rate": 31.8777,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.78,
         "discount": 0.0,
@@ -26464,7 +26464,7 @@
     "exchange_rate": 31.9586,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.67,
         "discount": 0.0,
@@ -26660,7 +26660,7 @@
     "exchange_rate": 31.9091,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.74,
         "discount": 0.0,
@@ -26856,7 +26856,7 @@
     "exchange_rate": 31.745,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.85,
         "discount": 0.0,
@@ -27052,7 +27052,7 @@
     "exchange_rate": 31.8064,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.99,
         "discount": 0.0,
@@ -27248,7 +27248,7 @@
     "exchange_rate": 31.8912,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.66,
         "discount": 0.0,
@@ -27444,7 +27444,7 @@
     "exchange_rate": 31.6727,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.57,
         "discount": 0.0,
@@ -27640,7 +27640,7 @@
     "exchange_rate": 31.5831,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.41,
         "discount": 0.0,
@@ -27836,7 +27836,7 @@
     "exchange_rate": 31.4337,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.37,
         "discount": 0.0,
@@ -28032,7 +28032,7 @@
     "exchange_rate": 31.4008,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.18,
         "discount": 0.0,
@@ -28228,7 +28228,7 @@
     "exchange_rate": 31.3082,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.29,
         "discount": 0.0,
@@ -28424,7 +28424,7 @@
     "exchange_rate": 31.1982,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.59,
         "discount": 0.0,
@@ -28620,7 +28620,7 @@
     "exchange_rate": 31.211,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.78,
         "discount": 0.0,
@@ -28816,7 +28816,7 @@
     "exchange_rate": 31.3238,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.92,
         "discount": 0.0,
@@ -29012,7 +29012,7 @@
     "exchange_rate": 31.3449,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.92,
         "discount": 0.0,
@@ -29208,7 +29208,7 @@
     "exchange_rate": 31.2828,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.96,
         "discount": 0.0,
@@ -29404,7 +29404,7 @@
     "exchange_rate": 31.2259,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.95,
         "discount": 0.0,
@@ -29600,7 +29600,7 @@
     "exchange_rate": 31.2287,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.96,
         "discount": 0.0,
@@ -29796,7 +29796,7 @@
     "exchange_rate": 31.3032,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.03,
         "discount": 0.0,
@@ -29992,7 +29992,7 @@
     "exchange_rate": 31.3264,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.14,
         "discount": 0.0,
@@ -30188,7 +30188,7 @@
     "exchange_rate": 31.3556,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.14,
         "discount": 0.0,
@@ -30384,7 +30384,7 @@
     "exchange_rate": 31.5427,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.12,
         "discount": 0.0,
@@ -30580,7 +30580,7 @@
     "exchange_rate": 31.6102,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.15,
         "discount": 0.0,
@@ -30776,7 +30776,7 @@
     "exchange_rate": 31.7217,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.22,
         "discount": 0.0,
@@ -30972,7 +30972,7 @@
     "exchange_rate": 31.652,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.28,
         "discount": 0.0,
@@ -31168,7 +31168,7 @@
     "exchange_rate": 31.5587,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.28,
         "discount": 0.0,
@@ -31364,7 +31364,7 @@
     "exchange_rate": 31.4346,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.27,
         "discount": 0.0,
@@ -31560,7 +31560,7 @@
     "exchange_rate": 31.4158,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.03,
         "discount": 0.0,
@@ -31756,7 +31756,7 @@
     "exchange_rate": 31.2506,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.09,
         "discount": 0.0,
@@ -31952,7 +31952,7 @@
     "exchange_rate": 31.1857,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.93,
         "discount": 0.0,
@@ -32148,7 +32148,7 @@
     "exchange_rate": 31.3902,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.99,
         "discount": 0.0,
@@ -32344,7 +32344,7 @@
     "exchange_rate": 31.5058,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.76,
         "discount": 0.0,
@@ -32540,7 +32540,7 @@
     "exchange_rate": 31.5765,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.62,
         "discount": 0.0,
@@ -32736,7 +32736,7 @@
     "exchange_rate": 31.565,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.36,
         "discount": 0.0,
@@ -32932,7 +32932,7 @@
     "exchange_rate": 31.4529,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.29,
         "discount": 0.0,
@@ -33128,7 +33128,7 @@
     "exchange_rate": 31.4832,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.32,
         "discount": 0.0,
@@ -33324,7 +33324,7 @@
     "exchange_rate": 31.4571,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.34,
         "discount": 0.0,
@@ -33520,7 +33520,7 @@
     "exchange_rate": 31.4111,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.45,
         "discount": 0.0,
@@ -33716,7 +33716,7 @@
     "exchange_rate": 31.346,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.67,
         "discount": 0.0,
@@ -33912,7 +33912,7 @@
     "exchange_rate": 31.3403,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.89,
         "discount": 0.0,
@@ -34108,7 +34108,7 @@
     "exchange_rate": 31.2975,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.21,
         "discount": 0.0,
@@ -34304,7 +34304,7 @@
     "exchange_rate": 31.2097,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.07,
         "discount": 0.0,
@@ -34500,7 +34500,7 @@
     "exchange_rate": 31.5383,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.91,
         "discount": 0.0,
@@ -34696,7 +34696,7 @@
     "exchange_rate": 31.6233,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.91,
         "discount": 0.0,
@@ -34892,7 +34892,7 @@
     "exchange_rate": 31.763,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.9,
         "discount": 0.0,
@@ -35088,7 +35088,7 @@
     "exchange_rate": 31.6948,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.02,
         "discount": 0.0,
@@ -35284,7 +35284,7 @@
     "exchange_rate": 31.8346,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.23,
         "discount": 0.0,
@@ -35480,7 +35480,7 @@
     "exchange_rate": 31.8558,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.33,
         "discount": 0.0,
@@ -35676,7 +35676,7 @@
     "exchange_rate": 31.8258,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.05,
         "discount": 0.0,
@@ -35761,7 +35761,7 @@
         "retail": 18.34
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.21,
         "discount": 0.0,
@@ -35872,7 +35872,7 @@
     "exchange_rate": 31.7673,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.08,
         "discount": 0.0,
@@ -35957,7 +35957,7 @@
         "retail": 18.14
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.22,
         "discount": 0.0,
@@ -36068,7 +36068,7 @@
     "exchange_rate": 31.7711,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.86,
         "discount": 0.0,
@@ -36153,7 +36153,7 @@
         "retail": 18.14
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.0,
         "discount": 0.0,
@@ -36264,7 +36264,7 @@
     "exchange_rate": 31.6814,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.73,
         "discount": 0.0,
@@ -36349,7 +36349,7 @@
         "retail": 18.14
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 9.95,
         "discount": 0.0,
@@ -36460,7 +36460,7 @@
     "exchange_rate": 31.4259,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.82,
         "discount": 0.0,
@@ -36545,7 +36545,7 @@
         "retail": 18.14
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.09,
         "discount": 0.0,
@@ -36656,7 +36656,7 @@
     "exchange_rate": 31.4721,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.93,
         "discount": 0.0,
@@ -36741,7 +36741,7 @@
         "retail": 18.14
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.34,
         "discount": 0.0,
@@ -36852,7 +36852,7 @@
     "exchange_rate": 31.3888,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.95,
         "discount": 0.0,
@@ -36937,7 +36937,7 @@
         "retail": 18.14
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.37,
         "discount": 0.0,
@@ -37048,7 +37048,7 @@
     "exchange_rate": 31.2966,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.91,
         "discount": 0.0,
@@ -37133,7 +37133,7 @@
         "retail": 18.14
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.48,
         "discount": 0.0,
@@ -37244,7 +37244,7 @@
     "exchange_rate": 31.2634,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.62,
         "discount": 0.0,
@@ -37329,7 +37329,7 @@
         "retail": 18.14
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.36,
         "discount": 0.0,
@@ -37440,7 +37440,7 @@
     "exchange_rate": 31.3735,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.49,
         "discount": 0.0,
@@ -37525,7 +37525,7 @@
         "retail": 18.14
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.34,
         "discount": 0.0,
@@ -37636,7 +37636,7 @@
     "exchange_rate": 31.3351,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.52,
         "discount": 0.0,
@@ -37721,7 +37721,7 @@
         "retail": 17.84
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.42,
         "discount": 0.0,
@@ -37832,7 +37832,7 @@
     "exchange_rate": 31.3688,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.55,
         "discount": 0.0,
@@ -37917,7 +37917,7 @@
         "retail": 17.84
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.64,
         "discount": 0.0,
@@ -38028,7 +38028,7 @@
     "exchange_rate": 31.3743,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.46,
         "discount": 0.0,
@@ -38113,7 +38113,7 @@
         "retail": 17.84
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.59,
         "discount": 0.0,
@@ -38224,7 +38224,7 @@
     "exchange_rate": 31.4056,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.46,
         "discount": 0.0,
@@ -38309,7 +38309,7 @@
         "retail": 17.84
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.49,
         "discount": 0.0,
@@ -38420,7 +38420,7 @@
     "exchange_rate": 31.3933,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.54,
         "discount": 0.0,
@@ -38505,7 +38505,7 @@
         "retail": 17.84
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.46,
         "discount": 0.0,
@@ -38616,7 +38616,7 @@
     "exchange_rate": 31.4221,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.44,
         "discount": 0.0,
@@ -38701,7 +38701,7 @@
         "retail": 17.84
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.53,
         "discount": 0.0,
@@ -38812,7 +38812,7 @@
     "exchange_rate": 31.4749,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.31,
         "discount": 0.0,
@@ -38897,7 +38897,7 @@
         "retail": 17.84
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.32,
         "discount": 0.0,
@@ -39008,7 +39008,7 @@
     "exchange_rate": 31.4208,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.21,
         "discount": 0.0,
@@ -39093,7 +39093,7 @@
         "retail": 17.84
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.25,
         "discount": 0.0,
@@ -39204,7 +39204,7 @@
     "exchange_rate": 31.3399,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.09,
         "discount": 0.0,
@@ -39289,7 +39289,7 @@
         "retail": 17.84
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.23,
         "discount": 0.0,
@@ -39400,7 +39400,7 @@
     "exchange_rate": 31.4242,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.96,
         "discount": 0.0,
@@ -39485,7 +39485,7 @@
         "retail": 17.64
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.17,
         "discount": 0.0,
@@ -39596,7 +39596,7 @@
     "exchange_rate": 31.3706,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.8,
         "discount": 0.0,
@@ -39681,7 +39681,7 @@
         "retail": 17.64
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.17,
         "discount": 0.0,
@@ -39792,7 +39792,7 @@
     "exchange_rate": 31.3353,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.45,
         "discount": 0.0,
@@ -39877,7 +39877,7 @@
         "retail": 17.64
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 9.88,
         "discount": 0.0,
@@ -39988,7 +39988,7 @@
     "exchange_rate": 31.2628,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.7,
         "discount": 0.0,
@@ -40073,7 +40073,7 @@
         "retail": 17.34
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.18,
         "discount": 0.0,
@@ -40184,7 +40184,7 @@
     "exchange_rate": 31.291,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 8.91,
         "discount": 0.0,
@@ -40269,7 +40269,7 @@
         "retail": 17.54
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.42,
         "discount": 0.0,
@@ -40380,7 +40380,7 @@
     "exchange_rate": 31.203,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.07,
         "discount": 0.0,
@@ -40465,7 +40465,7 @@
         "retail": 17.54
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.56,
         "discount": 0.0,
@@ -40576,7 +40576,7 @@
     "exchange_rate": 30.8654,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.09,
         "discount": 0.0,
@@ -40661,7 +40661,7 @@
         "retail": 17.69
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.79,
         "discount": 0.0,
@@ -40772,7 +40772,7 @@
     "exchange_rate": 30.6773,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.04,
         "discount": 0.0,
@@ -40857,7 +40857,7 @@
         "retail": 17.69
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 10.73,
         "discount": 0.0,
@@ -40968,7 +40968,7 @@
     "exchange_rate": 30.6405,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.32,
         "discount": 0.0,
@@ -41053,7 +41053,7 @@
         "retail": 17.69
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 11.11,
         "discount": 0.0,
@@ -41164,7 +41164,7 @@
     "exchange_rate": 30.429,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.62,
         "discount": 0.0,
@@ -41249,7 +41249,7 @@
         "retail": 17.99
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 11.5,
         "discount": 0.0,
@@ -41360,7 +41360,7 @@
     "exchange_rate": 30.4325,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.58,
         "discount": 0.0,
@@ -41445,7 +41445,7 @@
         "retail": 17.99
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 11.51,
         "discount": 0.0,
@@ -41556,7 +41556,7 @@
     "exchange_rate": 30.3851,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.32,
         "discount": 0.0,
@@ -41641,7 +41641,7 @@
         "retail": 17.99
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 11.3,
         "discount": 0.0,
@@ -41752,7 +41752,7 @@
     "exchange_rate": 30.3373,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.27,
         "discount": 0.0,
@@ -41837,7 +41837,7 @@
         "retail": 17.99
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 11.31,
         "discount": 0.0,
@@ -41948,7 +41948,7 @@
     "exchange_rate": 30.3473,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.27,
         "discount": 0.0,
@@ -42033,7 +42033,7 @@
         "retail": 17.99
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 11.37,
         "discount": 0.0,
@@ -42144,7 +42144,7 @@
     "exchange_rate": 30.4959,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.38,
         "discount": 0.0,
@@ -42229,7 +42229,7 @@
         "retail": 17.79
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 11.49,
         "discount": 0.0,
@@ -42340,7 +42340,7 @@
     "exchange_rate": 30.4446,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.53,
         "discount": 0.0,
@@ -42425,7 +42425,7 @@
         "retail": 17.79
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 11.62,
         "discount": 0.0,
@@ -42536,7 +42536,7 @@
     "exchange_rate": 30.5296,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.75,
         "discount": 0.0,
@@ -42621,7 +42621,7 @@
         "retail": 17.94
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 11.81,
         "discount": 0.0,
@@ -42732,7 +42732,7 @@
     "exchange_rate": 30.5096,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.08,
         "discount": 0.0,
@@ -42817,7 +42817,7 @@
         "retail": 17.94
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.06,
         "discount": 0.0,
@@ -42928,7 +42928,7 @@
     "exchange_rate": 30.4924,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.16,
         "discount": 0.0,
@@ -43013,7 +43013,7 @@
         "retail": 18.34
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.13,
         "discount": 0.0,
@@ -43124,7 +43124,7 @@
     "exchange_rate": 30.4598,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.15,
         "discount": 0.0,
@@ -43209,7 +43209,7 @@
         "retail": 18.34
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.06,
         "discount": 0.0,
@@ -43320,7 +43320,7 @@
     "exchange_rate": 30.452,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.08,
         "discount": 0.0,
@@ -43405,7 +43405,7 @@
         "retail": 18.34
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.04,
         "discount": 0.0,
@@ -43516,7 +43516,7 @@
     "exchange_rate": 30.4413,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.08,
         "discount": 0.0,
@@ -43601,7 +43601,7 @@
         "retail": 18.34
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.1,
         "discount": 0.0,
@@ -43712,7 +43712,7 @@
     "exchange_rate": 30.4054,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 9.98,
         "discount": 0.0,
@@ -43797,7 +43797,7 @@
         "retail": 18.34
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.01,
         "discount": 0.0,
@@ -43908,7 +43908,7 @@
     "exchange_rate": 30.3866,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.01,
         "discount": 0.0,
@@ -43993,7 +43993,7 @@
         "retail": 18.34
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.09,
         "discount": 0.0,
@@ -44104,7 +44104,7 @@
     "exchange_rate": 30.3481,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.28,
         "discount": 0.0,
@@ -44189,7 +44189,7 @@
         "retail": 18.34
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.39,
         "discount": 0.0,
@@ -44300,7 +44300,7 @@
     "exchange_rate": 30.3481,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.21,
         "discount": 0.0,
@@ -44385,7 +44385,7 @@
         "retail": 18.34
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.35,
         "discount": 0.0,
@@ -44496,7 +44496,7 @@
     "exchange_rate": 30.3189,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.14,
         "discount": 0.0,
@@ -44581,7 +44581,7 @@
         "retail": 18.34
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.35,
         "discount": 0.0,
@@ -44692,7 +44692,7 @@
     "exchange_rate": 30.2614,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.7,
         "discount": 0.0,
@@ -44777,7 +44777,7 @@
         "retail": 18.54
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.8,
         "discount": 0.0,
@@ -44888,7 +44888,7 @@
     "exchange_rate": 30.2546,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.62,
         "discount": 0.0,
@@ -44973,7 +44973,7 @@
         "retail": 18.54
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.78,
         "discount": 0.0,
@@ -45084,7 +45084,7 @@
     "exchange_rate": 30.218,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.57,
         "discount": 0.0,
@@ -45169,7 +45169,7 @@
         "retail": 18.54
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.79,
         "discount": 0.0,
@@ -45280,7 +45280,7 @@
     "exchange_rate": 30.082,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.7,
         "discount": 0.0,
@@ -45365,7 +45365,7 @@
         "retail": 18.54
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.89,
         "discount": 0.0,
@@ -45476,7 +45476,7 @@
     "exchange_rate": 29.9653,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.79,
         "discount": 0.0,
@@ -45561,7 +45561,7 @@
         "retail": 18.74
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.87,
         "discount": 0.0,
@@ -45672,7 +45672,7 @@
     "exchange_rate": 30.1685,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.7,
         "discount": 0.0,
@@ -45757,7 +45757,7 @@
         "retail": 18.74
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.81,
         "discount": 0.0,
@@ -45868,7 +45868,7 @@
     "exchange_rate": 30.3059,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.64,
         "discount": 0.0,
@@ -45953,7 +45953,7 @@
         "retail": 18.74
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.73,
         "discount": 0.0,
@@ -46064,7 +46064,7 @@
     "exchange_rate": 30.3704,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.67,
         "discount": 0.0,
@@ -46149,7 +46149,7 @@
         "retail": 18.54
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.72,
         "discount": 0.0,
@@ -46260,7 +46260,7 @@
     "exchange_rate": 30.3524,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.96,
         "discount": 0.0,
@@ -46345,7 +46345,7 @@
         "retail": 18.54
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.94,
         "discount": 0.0,
@@ -46456,7 +46456,7 @@
     "exchange_rate": 30.2442,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.92,
         "discount": 0.0,
@@ -46541,7 +46541,7 @@
         "retail": 18.54
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.87,
         "discount": 0.0,
@@ -46652,7 +46652,7 @@
     "exchange_rate": 30.2723,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 11.01,
         "discount": 0.0,
@@ -46737,7 +46737,7 @@
         "retail": 18.54
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.96,
         "discount": 0.0,
@@ -46848,7 +46848,7 @@
     "exchange_rate": 30.2606,
     "products": [
       {
-        "id": "ULG",
+        "id": "ULG95",
         "name": "ULG",
         "ex_refinery": 10.97,
         "discount": 0.0,
@@ -46933,7 +46933,7 @@
         "retail": 18.54
       },
       {
-        "id": "B7",
+        "id": "HDIESEL",
         "name": "H-DIESEL B7",
         "ex_refinery": 12.92,
         "discount": 0.0,

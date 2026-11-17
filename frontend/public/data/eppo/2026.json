@@ -9502,7 +9502,7 @@
         "retail": 38.94
       },
       {
-        "id": "HDIESEL",
+        "id": "B20",
         "name": "H-DIESEL 20",
         "ex_refinery": 42.63,
         "discount": 0.0,
@@ -9681,7 +9681,7 @@
         "retail": 38.94
       },
       {
-        "id": "HDIESEL",
+        "id": "B20",
         "name": "H-DIESEL 20",
         "ex_refinery": 46.2,
         "discount": 0.0,
@@ -9860,7 +9860,7 @@
         "retail": 40.74
       },
       {
-        "id": "HDIESEL",
+        "id": "B20",
         "name": "H-DIESEL 20",
         "ex_refinery": 48.91,
         "discount": 0.0,
@@ -10039,7 +10039,7 @@
         "retail": 40.74
       },
       {
-        "id": "HDIESEL",
+        "id": "B20",
         "name": "H-DIESEL 20",
         "ex_refinery": 48.19,
         "discount": 0.0,
