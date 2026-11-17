@@ -162,7 +162,7 @@ export default function OilPriceDashboard() {
         data: {
           labels: prods.map((p) => p.name),
           datasets: [
-            { label: "หน้าโรงกลั่น (สุทธิส่วนลด)", data: prods.map((p) => +(p.ex_refinery + p.discount).toFixed(2)), backgroundColor: "#1e3a8a" },
+            { label: "ราคาหน้าโรงกลั่น (หักส่วนลด)", data: prods.map((p) => +(p.ex_refinery + p.discount).toFixed(2)), backgroundColor: "#1e3a8a" },
             { label: "ภาษีสรรพสามิต+เทศบาล", data: prods.map((p) => +(p.excise_tax + p.m_tax).toFixed(2)), backgroundColor: "#64748b" },
             {
               label: "กองทุนน้ำมัน+อนุรักษ์ฯ",
@@ -271,11 +271,22 @@ export default function OilPriceDashboard() {
               ]
             : [
                 {
-                  label: "หน้าโรงกลั่น (สุทธิส่วนลด)",
+                  label: "ราคาขายปลีกสุทธิ (Retail)",
+                  data: dailyRows.map((r) => r.prod.retail),
+                  borderColor: isDark ? "#f8fafc" : "#0f172a",
+                  backgroundColor: "transparent",
+                  fill: false,
+                  stack: "retail",
+                  borderWidth: 2.5,
+                  borderDash: [6, 4],
+                },
+                {
+                  label: "ราคาหน้าโรงกลั่น (หักส่วนลด)",
                   data: dailyRows.map((r) => +(r.prod.ex_refinery + r.prod.discount).toFixed(2)),
                   borderColor: "#1d4ed8",
                   backgroundColor: "rgba(29, 78, 216, 0.75)",
                   fill: true,
+                  stack: "components",
                   borderWidth: 1.5,
                 },
                 {
@@ -284,6 +295,7 @@ export default function OilPriceDashboard() {
                   borderColor: "#7c3aed",
                   backgroundColor: "rgba(124, 58, 237, 0.75)",
                   fill: true,
+                  stack: "components",
                   borderWidth: 1.5,
                 },
                 {
@@ -292,6 +304,7 @@ export default function OilPriceDashboard() {
                   borderColor: "#d97706",
                   backgroundColor: "rgba(245, 158, 11, 0.80)",
                   fill: true,
+                  stack: "components",
                   borderWidth: 1.5,
                 },
                 {
@@ -300,6 +313,7 @@ export default function OilPriceDashboard() {
                   borderColor: "#059669",
                   backgroundColor: "rgba(16, 185, 129, 0.80)",
                   fill: true,
+                  stack: "components",
                   borderWidth: 1.5,
                 },
                 {
@@ -308,6 +322,7 @@ export default function OilPriceDashboard() {
                   borderColor: "#e11d48",
                   backgroundColor: "rgba(244, 63, 94, 0.75)",
                   fill: true,
+                  stack: "components",
                   borderWidth: 1.5,
                 },
               ];
