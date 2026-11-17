@@ -40,10 +40,13 @@ export default function OilPriceDashboard() {
   const [explorerFormat, setExplorerFormat] = useState<"wide" | "long">("wide");
   const [explorerPage, setExplorerPage] = useState(1);
 
+  const [retailRange, setRetailRange] = useState<"1m" | "3m" | "ytd" | "1y" | "all">("3m");
+
+  const retailCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const stackedCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const trendCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const deepDiveCanvasRef = useRef<HTMLCanvasElement | null>(null);
-  const chartsRef = useRef<{ stacked?: Chart; trend?: Chart; deepDive?: Chart }>({});
+  const chartsRef = useRef<{ retail?: Chart; stacked?: Chart; trend?: Chart; deepDive?: Chart }>({});
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
@@ -147,6 +150,93 @@ export default function OilPriceDashboard() {
     setStartDate(s);
     setEndDate(maxD);
   };
+
+  // Render Page 1 Retail Price Trend Chart
+  useEffect(() => {
+    if (activeTab !== "retail" || !allDays.length || !retailCanvasRef.current) return;
+    chartsRef.current.retail?.destroy();
+
+    const maxD = allDays[allDays.length - 1].date;
+    let minD = allDays[0].date;
+    const end = new Date(maxD);
+    if (retailRange === "1m") {
+      const d = new Date(end); d.setMonth(d.getMonth() - 1); minD = d.toISOString().slice(0, 10);
+    } else if (retailRange === "3m") {
+      const d = new Date(end); d.setMonth(d.getMonth() - 3); minD = d.toISOString().slice(0, 10);
+    } else if (retailRange === "ytd") {
+      minD = `${maxD.slice(0, 4)}-01-01`;
+    } else if (retailRange === "1y") {
+      const d = new Date(end); d.setFullYear(d.getFullYear() - 1); minD = d.toISOString().slice(0, 10);
+    }
+
+    const slice = allDays.filter((d) => d.date >= minD);
+    const rows = slice.length ? slice : allDays;
+    const spanDays = Math.max(1, (new Date(rows[rows.length - 1].date).getTime() - new Date(rows[0].date).getTime()) / 86400000);
+    let lastTick = "";
+    const textColor = isDark ? "#cbd5e1" : "#334155";
+    const gridColor = isDark ? "#334155" : "#e2e8f0";
+
+    const series = [
+      { id: "G95", label: "GASOHOL95 E10", color: "#0284c7" },
+      { id: "G91", label: "GASOHOL91", color: "#0ea5e9" },
+      { id: "E20", label: "GASOHOL95 E20", color: "#7c3aed" },
+      { id: "HDIESEL", label: "H-DIESEL", color: "#d97706" },
+      { id: "ULG95", label: "ULG95", color: "#e11d48" },
+    ];
+
+    chartsRef.current.retail = new Chart(retailCanvasRef.current, {
+      type: "line",
+      data: {
+        labels: rows.map((d) => d.date + (d.note ? ` (${d.note})` : "")),
+        datasets: series.map((s) => ({
+          label: s.label,
+          data: rows.map((d) => d.products.find((p) => p.id === s.id)?.retail ?? null),
+          borderColor: s.color,
+          backgroundColor: s.color,
+          borderWidth: 2,
+          tension: 0.15,
+          spanGaps: true,
+        })),
+      },
+      options: {
+        animation: false,
+        elements: { point: { radius: rows.length > 90 ? 0 : 2 } },
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: {
+              color: textColor,
+              maxRotation: 0,
+              autoSkip: false,
+              callback: (_val, index) => {
+                const dt = rows[index]?.date;
+                if (!dt) return "";
+                const [y, m, d] = dt.split("-");
+                const beYear = Number(y) + 543;
+                const lbl =
+                  spanDays > 365
+                    ? `${beYear}`
+                    : spanDays > 45
+                      ? `${TH_MONTHS[Number(m) - 1]} ${String(beYear).slice(-2)}`
+                      : `${Number(d)} ${TH_MONTHS[Number(m) - 1]}`;
+                if (index === 0) lastTick = "";
+                if (lbl === lastTick) return "";
+                lastTick = lbl;
+                return lbl;
+              },
+            },
+          },
+          y: { grid: { color: gridColor }, ticks: { color: textColor } },
+        },
+        plugins: {
+          legend: { position: "bottom", labels: { color: textColor, boxWidth: 12, font: { size: 11 } } },
+          tooltip: { mode: "index", intersect: false },
+        },
+      },
+    });
+  }, [activeTab, allDays, retailRange, isDark]);
 
   // Render Page 2 Charts
   useEffect(() => {
@@ -607,6 +697,44 @@ export default function OilPriceDashboard() {
         {/* PAGE 1: DAILY RETAIL */}
         {activeTab === "retail" && retailLatest && (
           <section className="space-y-6">
+            {latestDay && (
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { id: "G95", label: "GASOHOL95 E10", unit: "บาท/ลิตร" },
+                  { id: "E20", label: "GASOHOL95 E20", unit: "บาท/ลิตร" },
+                  { id: "HDIESEL", label: "H-DIESEL", unit: "บาท/ลิตร" },
+                  { id: "LPG", label: "LPG (อ้างอิง EPPO)", unit: "บาท/กก." },
+                ].map((kpi) => {
+                  const cur = latestDay.products.find((p) => p.id === kpi.id)?.retail;
+                  const prevDay = allDays.length > 1 ? allDays[allDays.length - 2] : null;
+                  const prev = prevDay?.products.find((p) => p.id === kpi.id)?.retail;
+                  const delta = cur !== undefined && prev !== undefined ? +(cur - prev).toFixed(2) : 0;
+                  return (
+                    <div key={kpi.id} className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-4 shadow-sm">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-xs font-medium text-slate-500 dark:text-slate-400">{kpi.label}</span>
+                        <span
+                          className={`px-2 py-0.5 rounded-full text-[11px] font-mono font-medium ${
+                            delta < 0
+                              ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
+                              : delta > 0
+                                ? "bg-rose-50 text-rose-700 dark:bg-rose-950 dark:text-rose-300"
+                                : "bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+                          }`}
+                        >
+                          {delta < 0 ? `▼ ${delta.toFixed(2)}` : delta > 0 ? `▲ +${delta.toFixed(2)}` : "— คงที่"}
+                        </span>
+                      </div>
+                      <div className="mt-2 flex items-baseline gap-1.5">
+                        <span className="text-2xl font-bold font-mono tabular-nums">{cur !== undefined ? cur.toFixed(2) : "—"}</span>
+                        <span className="text-xs text-slate-500">{kpi.unit}</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
             <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
               <div className="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
                 <div>
@@ -650,6 +778,31 @@ export default function OilPriceDashboard() {
                     ))}
                   </tbody>
                 </table>
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                <div>
+                  <h2 className="text-base font-semibold">แนวโน้มราคาขายปลีกอ้างอิงรายวัน (Retail Price Trend)</h2>
+                  <p className="text-xs text-slate-500">เปรียบเทียบการเคลื่อนไหวราคาขายปลีกน้ำมันหลักหน้าสถานีบริการ</p>
+                </div>
+                <div className="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-0.5 bg-slate-50 dark:bg-slate-800">
+                  {(["1m", "3m", "ytd", "1y", "all"] as const).map((r) => (
+                    <button
+                      key={r}
+                      onClick={() => setRetailRange(r)}
+                      className={`px-2.5 py-1 text-xs font-medium rounded-md ${
+                        retailRange === r ? "bg-white dark:bg-slate-700 shadow-sm text-sky-700 dark:text-sky-300" : "text-slate-500"
+                      }`}
+                    >
+                      {r === "all" ? "10 ปี" : r.toUpperCase()}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="relative h-72">
+                <canvas ref={retailCanvasRef} />
               </div>
             </div>
           </section>
