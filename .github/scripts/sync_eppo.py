@@ -302,7 +302,7 @@ def main() -> None:
 
     force_refresh = os.getenv("FORCE_REFRESH", "false").lower() == "true"
     backfill_all = os.getenv("BACKFILL_ALL", "false").lower() == "true"
-    max_pages = int(os.getenv("MAX_PAGES", "0" if backfill_all else "2"))
+    max_pages = 0 if backfill_all else int(os.getenv("MAX_PAGES", "2"))
 
     inventory: dict[str, dict[str, Any]] = load_json(INVENTORY_PATH, {})
     year_records: dict[str, dict[str, Any]] = {}
