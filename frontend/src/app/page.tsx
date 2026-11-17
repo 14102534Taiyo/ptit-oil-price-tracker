@@ -28,6 +28,7 @@ export default function OilPriceDashboard() {
   const [selectedFuelId, setSelectedFuelId] = useState("G95");
   const [trendMetric, setTrendMetric] = useState<"oil_fund" | "retail" | "mkt_margin">("oil_fund");
   const [trendYear, setTrendYear] = useState<string>("2026");
+  const [trendChartType, setTrendChartType] = useState<"bar" | "line" | "stacked_area">("line");
 
   // Page 3 state
   const [deepDiveFuel, setDeepDiveFuel] = useState("G95");
@@ -191,53 +192,177 @@ export default function OilPriceDashboard() {
 
     if (trendCanvasRef.current) {
       chartsRef.current.trend?.destroy();
-      const byMonth: Record<string, number[]> = {};
-      allDays.forEach((d) => {
-        if (trendYear !== "all" && !d.date.startsWith(trendYear)) return;
-        const found = d.products.find((x) => x.id === selectedFuelId);
-        if (!found) return;
-        const ym = d.date.slice(0, 7);
-        (byMonth[ym] ??= []).push(found[trendMetric]);
-      });
 
-      const monthsSorted = Object.keys(byMonth).sort();
-      const avgs = monthsSorted.map((ym) => +(byMonth[ym].reduce((a, b) => a + b, 0) / byMonth[ym].length).toFixed(2));
-      const barColors = avgs.map((v) =>
-        trendMetric === "oil_fund" ? (v < 0 ? "#059669" : "#d97706") : "#0284c7"
-      );
+      if (trendChartType === "bar") {
+        const byMonth: Record<string, number[]> = {};
+        allDays.forEach((d) => {
+          if (trendYear !== "all" && !d.date.startsWith(trendYear)) return;
+          const found = d.products.find((x) => x.id === selectedFuelId);
+          if (!found) return;
+          const ym = d.date.slice(0, 7);
+          (byMonth[ym] ??= []).push(found[trendMetric]);
+        });
 
-      chartsRef.current.trend = new Chart(trendCanvasRef.current, {
-        type: "bar",
-        data: {
-          labels: monthsSorted.map((ym) => {
-            const [y, m] = ym.split("-");
-            return `${TH_MONTHS[Number(m) - 1]} ${String(Number(y) + 543).slice(-2)}`;
-          }),
-          datasets: [
-            {
-              label: `${selectedProduct?.name ?? selectedFuelId} — ค่าเฉลี่ยรายเดือน (บาท/หน่วย)`,
-              data: avgs,
-              backgroundColor: barColors,
-              borderRadius: 4,
+        const monthsSorted = Object.keys(byMonth).sort();
+        const avgs = monthsSorted.map((ym) => +(byMonth[ym].reduce((a, b) => a + b, 0) / byMonth[ym].length).toFixed(2));
+        const barColors = avgs.map((v) =>
+          trendMetric === "oil_fund" ? (v < 0 ? "#059669" : "#d97706") : "#0284c7"
+        );
+
+        chartsRef.current.trend = new Chart(trendCanvasRef.current, {
+          type: "bar",
+          data: {
+            labels: monthsSorted.map((ym) => {
+              const [y, m] = ym.split("-");
+              return `${TH_MONTHS[Number(m) - 1]} ${String(Number(y) + 543).slice(-2)}`;
+            }),
+            datasets: [
+              {
+                label: `${selectedProduct?.name ?? selectedFuelId} — ค่าเฉลี่ยรายเดือน (บาท/หน่วย)`,
+                data: avgs,
+                backgroundColor: barColors,
+                borderRadius: 4,
+              },
+            ],
+          },
+          options: {
+            animation: false,
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: { grid: { display: false }, ticks: { color: textColor, maxRotation: 0 } },
+              y: { grid: { color: gridColor }, ticks: { color: textColor } },
             },
-          ],
-        },
-        options: {
-          animation: false,
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            x: { grid: { display: false }, ticks: { color: textColor, maxRotation: 0 } },
-            y: { grid: { color: gridColor }, ticks: { color: textColor } },
+            plugins: {
+              legend: { position: "bottom", labels: { color: textColor, boxWidth: 12, font: { size: 11 } } },
+              tooltip: { mode: "index", intersect: false },
+            },
           },
-          plugins: {
-            legend: { position: "bottom", labels: { color: textColor, boxWidth: 12, font: { size: 11 } } },
-            tooltip: { mode: "index", intersect: false },
+        });
+      } else {
+        const dailyRows = allDays
+          .map((d) => ({ day: d, prod: d.products.find((x) => x.id === selectedFuelId) }))
+          .filter((r): r is { day: EppoDayRecord; prod: EppoProduct } => {
+            if (!r.prod) return false;
+            return trendYear === "all" || r.day.date.startsWith(trendYear);
+          });
+
+        const spanDays =
+          dailyRows.length > 1
+            ? Math.max(
+                1,
+                (new Date(dailyRows[dailyRows.length - 1].day.date).getTime() - new Date(dailyRows[0].day.date).getTime()) / 86400000
+              )
+            : 1;
+        let lastShown = "";
+
+        const datasets =
+          trendChartType === "line"
+            ? [
+                {
+                  label: `${selectedProduct?.name ?? selectedFuelId} — รายวัน (${trendMetric})`,
+                  data: dailyRows.map((r) => r.prod[trendMetric]),
+                  borderColor: "#0284c7",
+                  backgroundColor: "rgba(2, 132, 199, 0.12)",
+                  borderWidth: 2,
+                  fill: false,
+                  tension: 0.15,
+                },
+              ]
+            : [
+                {
+                  label: "หน้าโรงกลั่น (สุทธิส่วนลด)",
+                  data: dailyRows.map((r) => +(r.prod.ex_refinery + r.prod.discount).toFixed(2)),
+                  borderColor: "#1e3a8a",
+                  backgroundColor: "rgba(30, 58, 138, 0.65)",
+                  fill: true,
+                  borderWidth: 1,
+                },
+                {
+                  label: "ภาษีสรรพสามิต+เทศบาล",
+                  data: dailyRows.map((r) => +(r.prod.excise_tax + r.prod.m_tax).toFixed(2)),
+                  borderColor: "#64748b",
+                  backgroundColor: "rgba(100, 116, 139, 0.65)",
+                  fill: true,
+                  borderWidth: 1,
+                },
+                {
+                  label: "กองทุนน้ำมัน+อนุรักษ์ฯ",
+                  data: dailyRows.map((r) => +(r.prod.oil_fund + r.prod.cons_fund).toFixed(2)),
+                  borderColor: "#d97706",
+                  backgroundColor: "rgba(217, 119, 6, 0.65)",
+                  fill: true,
+                  borderWidth: 1,
+                },
+                {
+                  label: "ค่าการตลาด",
+                  data: dailyRows.map((r) => r.prod.mkt_margin),
+                  borderColor: "#0ea5e9",
+                  backgroundColor: "rgba(14, 165, 233, 0.65)",
+                  fill: true,
+                  borderWidth: 1,
+                },
+                {
+                  label: "VAT 7% (WS+MM)",
+                  data: dailyRows.map((r) => r.prod.vat),
+                  borderColor: "#94a3b8",
+                  backgroundColor: "rgba(148, 163, 184, 0.65)",
+                  fill: true,
+                  borderWidth: 1,
+                },
+              ];
+
+        chartsRef.current.trend = new Chart(trendCanvasRef.current, {
+          type: "line",
+          data: {
+            labels: dailyRows.map((r) => r.day.date + (r.day.note ? ` (${r.day.note})` : "")),
+            datasets,
           },
-        },
-      });
+          options: {
+            animation: false,
+            elements: { point: { radius: dailyRows.length > 90 ? 0 : 2 } },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: {
+                  color: textColor,
+                  maxRotation: 0,
+                  autoSkip: false,
+                  callback: (_val, index) => {
+                    const dt = dailyRows[index]?.day.date;
+                    if (!dt) return "";
+                    const [y, m, d] = dt.split("-");
+                    const beYear = Number(y) + 543;
+                    const lbl =
+                      spanDays > 365
+                        ? `${beYear}`
+                        : spanDays > 45
+                          ? `${TH_MONTHS[Number(m) - 1]} ${String(beYear).slice(-2)}`
+                          : `${Number(d)} ${TH_MONTHS[Number(m) - 1]}`;
+                    if (index === 0) lastShown = "";
+                    if (lbl === lastShown) return "";
+                    lastShown = lbl;
+                    return lbl;
+                  },
+                },
+              },
+              y: {
+                stacked: trendChartType === "stacked_area",
+                grid: { color: gridColor },
+                ticks: { color: textColor },
+              },
+            },
+            plugins: {
+              legend: { position: "bottom", labels: { color: textColor, boxWidth: 12, font: { size: 11 } } },
+              tooltip: { mode: "index", intersect: false },
+            },
+          },
+        });
+      }
     }
-  }, [activeTab, latestDay, allDays, trendMetric, trendYear, selectedFuelId, selectedProduct, isDark]);
+  }, [activeTab, latestDay, allDays, trendMetric, trendYear, trendChartType, selectedFuelId, selectedProduct, isDark]);
 
   // Render Page 3 Deep-Dive Chart (All Components + Adaptive X-axis)
   useEffect(() => {
@@ -600,21 +725,40 @@ export default function OilPriceDashboard() {
                   </select>
                   <div className="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-0.5 bg-slate-50 dark:bg-slate-800">
                     {[
-                      { id: "oil_fund", label: "กองทุนน้ำมัน" },
-                      { id: "retail", label: "ราคาขายปลีก" },
-                      { id: "mkt_margin", label: "ค่าการตลาด" },
-                    ].map((m) => (
+                      { id: "line", label: "Line (รายวัน)" },
+                      { id: "stacked_area", label: "Stacked Area (รายวัน)" },
+                      { id: "bar", label: "Bar (เฉลี่ยรายเดือน)" },
+                    ].map((ct) => (
                       <button
-                        key={m.id}
-                        onClick={() => setTrendMetric(m.id as "oil_fund" | "retail" | "mkt_margin")}
-                        className={`px-3 py-1 text-xs font-medium rounded-md ${
-                          trendMetric === m.id ? "bg-white dark:bg-slate-700 shadow-sm text-sky-700 dark:text-sky-300" : "text-slate-500"
+                        key={ct.id}
+                        onClick={() => setTrendChartType(ct.id as "bar" | "line" | "stacked_area")}
+                        className={`px-2.5 py-1 text-xs font-medium rounded-md ${
+                          trendChartType === ct.id ? "bg-white dark:bg-slate-700 shadow-sm text-sky-700 dark:text-sky-300" : "text-slate-500"
                         }`}
                       >
-                        {m.label}
+                        {ct.label}
                       </button>
                     ))}
                   </div>
+                  {trendChartType !== "stacked_area" && (
+                    <div className="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-0.5 bg-slate-50 dark:bg-slate-800">
+                      {[
+                        { id: "oil_fund", label: "กองทุนน้ำมัน" },
+                        { id: "retail", label: "ราคาขายปลีก" },
+                        { id: "mkt_margin", label: "ค่าการตลาด" },
+                      ].map((m) => (
+                        <button
+                          key={m.id}
+                          onClick={() => setTrendMetric(m.id as "oil_fund" | "retail" | "mkt_margin")}
+                          className={`px-3 py-1 text-xs font-medium rounded-md ${
+                            trendMetric === m.id ? "bg-white dark:bg-slate-700 shadow-sm text-sky-700 dark:text-sky-300" : "text-slate-500"
+                          }`}
+                        >
+                          {m.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="relative h-72">
