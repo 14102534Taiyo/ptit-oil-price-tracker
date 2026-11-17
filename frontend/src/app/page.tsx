@@ -172,23 +172,32 @@ export default function OilPriceDashboard() {
 
     if (trendCanvasRef.current) {
       chartsRef.current.trend?.destroy();
-      const palette = ["#0284c7", "#0ea5e9", "#7c3aed", "#a855f7", "#ec4899", "#d97706", "#f59e0b", "#059669"];
-      const mainProds = latestDay.products.filter((p) => !p.id.startsWith("FO"));
+      const byYear: Record<string, number[]> = {};
+      allDays.forEach((d) => {
+        const found = d.products.find((x) => x.id === selectedFuelId);
+        if (!found) return;
+        const yr = d.date.slice(0, 4);
+        (byYear[yr] ??= []).push(found[trendMetric]);
+      });
+
+      const yearsSorted = Object.keys(byYear).sort();
+      const avgs = yearsSorted.map((yr) => +(byYear[yr].reduce((a, b) => a + b, 0) / byYear[yr].length).toFixed(2));
+      const barColors = avgs.map((v) =>
+        trendMetric === "oil_fund" ? (v < 0 ? "#059669" : "#d97706") : "#0284c7"
+      );
+
       chartsRef.current.trend = new Chart(trendCanvasRef.current, {
-        type: "line",
+        type: "bar",
         data: {
-          labels: allDays.map((d) => d.date.slice(5) + (d.note ? " ★" : "")),
-          datasets: mainProds.map((p, idx) => ({
-            label: p.name,
-            data: allDays.map((d) => {
-              const found = d.products.find((x) => x.id === p.id);
-              return found ? found[trendMetric] : 0;
-            }),
-            borderColor: palette[idx % palette.length],
-            backgroundColor: palette[idx % palette.length],
-            borderWidth: 2,
-            tension: 0.25,
-          })),
+          labels: yearsSorted.map((yr) => `${Number(yr) + 543}`),
+          datasets: [
+            {
+              label: `${selectedProduct?.name ?? selectedFuelId} — ค่าเฉลี่ยรายปี (บาท/หน่วย)`,
+              data: avgs,
+              backgroundColor: barColors,
+              borderRadius: 6,
+            },
+          ],
         },
         options: {
           responsive: true,
@@ -204,7 +213,7 @@ export default function OilPriceDashboard() {
         },
       });
     }
-  }, [activeTab, latestDay, allDays, trendMetric, isDark]);
+  }, [activeTab, latestDay, allDays, trendMetric, selectedFuelId, selectedProduct, isDark]);
 
   // Render Page 3 Deep-Dive Chart (All Components + Adaptive X-axis)
   useEffect(() => {
@@ -535,23 +544,39 @@ export default function OilPriceDashboard() {
 
             <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                <h2 className="text-base font-semibold">แนวโน้มย้อนหลังทุกผลิตภัณฑ์</h2>
-                <div className="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-0.5 bg-slate-50 dark:bg-slate-800">
-                  {[
-                    { id: "oil_fund", label: "กองทุนน้ำมัน" },
-                    { id: "retail", label: "ราคาขายปลีก" },
-                    { id: "mkt_margin", label: "ค่าการตลาด" },
-                  ].map((m) => (
-                    <button
-                      key={m.id}
-                      onClick={() => setTrendMetric(m.id as "oil_fund" | "retail" | "mkt_margin")}
-                      className={`px-3 py-1 text-xs font-medium rounded-md ${
-                        trendMetric === m.id ? "bg-white dark:bg-slate-700 shadow-sm text-sky-700 dark:text-sky-300" : "text-slate-500"
-                      }`}
-                    >
-                      {m.label}
-                    </button>
-                  ))}
+                <div>
+                  <h2 className="text-base font-semibold">ค่าเฉลี่ยรายปีแยกตามผลิตภัณฑ์ (Annual Average)</h2>
+                  <p className="text-xs text-slate-500">เลือกผลิตภัณฑ์และตัวแปรเพื่อดูค่าเฉลี่ยรายปี (พ.ศ.)</p>
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <select
+                    value={selectedFuelId}
+                    onChange={(e) => setSelectedFuelId(e.target.value)}
+                    className="text-xs rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-2.5 py-1.5"
+                  >
+                    {latestDay.products.map((p) => (
+                      <option key={p.id} value={p.id}>
+                        {p.name}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-0.5 bg-slate-50 dark:bg-slate-800">
+                    {[
+                      { id: "oil_fund", label: "กองทุนน้ำมัน" },
+                      { id: "retail", label: "ราคาขายปลีก" },
+                      { id: "mkt_margin", label: "ค่าการตลาด" },
+                    ].map((m) => (
+                      <button
+                        key={m.id}
+                        onClick={() => setTrendMetric(m.id as "oil_fund" | "retail" | "mkt_margin")}
+                        className={`px-3 py-1 text-xs font-medium rounded-md ${
+                          trendMetric === m.id ? "bg-white dark:bg-slate-700 shadow-sm text-sky-700 dark:text-sky-300" : "text-slate-500"
+                        }`}
+                      >
+                        {m.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
               <div className="relative h-72">
