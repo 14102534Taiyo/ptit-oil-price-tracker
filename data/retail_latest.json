@@ -13,7 +13,7 @@
       "name": "GASOHOL95 E10",
       "ptt": 38.84,
       "bcp": 38.84,
-      "caltex": 39.34,
+      "caltex": 38.84,
       "eppo": 38.84,
       "delta": 0.0
     },
@@ -22,7 +22,7 @@
       "name": "GASOHOL91",
       "ptt": 38.47,
       "bcp": 38.47,
-      "caltex": 38.97,
+      "caltex": 38.47,
       "eppo": 38.47,
       "delta": 0.0
     },
@@ -31,7 +31,7 @@
       "name": "GASOHOL95 E20",
       "ptt": 30.8,
       "bcp": 30.8,
-      "caltex": 31.3,
+      "caltex": 30.8,
       "eppo": 30.8,
       "delta": 0.0
     },
@@ -49,7 +49,7 @@
       "name": "ULG95 (Premium)",
       "ptt": 48.33,
       "bcp": null,
-      "caltex": 48.81,
+      "caltex": 48.31,
       "eppo": 48.33,
       "delta": 0.0
     },
@@ -58,7 +58,7 @@
       "name": "H-DIESEL",
       "ptt": 39.99,
       "bcp": 39.99,
-      "caltex": 40.79,
+      "caltex": 39.99,
       "eppo": 39.99,
       "delta": 0.0
     },
