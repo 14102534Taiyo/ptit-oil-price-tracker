@@ -12,28 +12,28 @@
       "id": "G95",
       "name": "GASOHOL95 E10",
       "ptt": 38.84,
-      "bcp": 39.34,
+      "bcp": 38.84,
       "caltex": 39.34,
-      "eppo": 39.34,
-      "delta": -0.5
+      "eppo": 38.84,
+      "delta": 0.0
     },
     {
       "id": "G91",
       "name": "GASOHOL91",
       "ptt": 38.47,
-      "bcp": 38.97,
+      "bcp": 38.47,
       "caltex": 38.97,
-      "eppo": 38.97,
-      "delta": -0.5
+      "eppo": 38.47,
+      "delta": 0.0
     },
     {
       "id": "E20",
       "name": "GASOHOL95 E20",
       "ptt": 30.8,
-      "bcp": 31.3,
+      "bcp": 30.8,
       "caltex": 31.3,
-      "eppo": 31.3,
-      "delta": -0.5
+      "eppo": 30.8,
+      "delta": 0.0
     },
     {
       "id": "E85",
@@ -50,17 +50,17 @@
       "ptt": 48.33,
       "bcp": null,
       "caltex": 48.81,
-      "eppo": 48.83,
-      "delta": -0.5
+      "eppo": 48.33,
+      "delta": 0.0
     },
     {
       "id": "HDIESEL",
       "name": "H-DIESEL",
       "ptt": 39.99,
-      "bcp": 40.79,
+      "bcp": 39.99,
       "caltex": 40.79,
-      "eppo": 40.79,
-      "delta": -0.8
+      "eppo": 39.99,
+      "delta": 0.0
     },
     {
       "id": "B20",
@@ -77,7 +77,7 @@
       "ptt": null,
       "bcp": null,
       "caltex": null,
-      "eppo": 24.84,
+      "eppo": 23.83,
       "delta": 0.0
     },
     {
@@ -86,7 +86,7 @@
       "ptt": null,
       "bcp": null,
       "caltex": null,
-      "eppo": 22.69,
+      "eppo": 21.81,
       "delta": 0.0
     },
     {
