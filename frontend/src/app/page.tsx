@@ -48,6 +48,7 @@ export default function OilPriceDashboard() {
   const [explorerGranularity, setExplorerGranularity] = useState<"daily" | "change_only" | "monthly">("daily");
   const [explorerFormat, setExplorerFormat] = useState<"wide" | "long">("wide");
   const [explorerPage, setExplorerPage] = useState(1);
+  const [selectedExportFuels, setSelectedExportFuels] = useState<string[] | null>(null);
 
   const [retailRange, setRetailRange] = useState<"1m" | "3m" | "ytd" | "1y" | "all">("3m");
   const [retailSource, setRetailSource] = useState<RetailSource>("ptt");
@@ -635,10 +636,24 @@ export default function OilPriceDashboard() {
     };
   }, [filteredDays, deepDiveFuel]);
 
+  const selectedExportCatalog = useMemo(() => {
+    if (selectedExportFuels === null) return allProductCatalog;
+    const picked = new Set(selectedExportFuels);
+    return allProductCatalog.filter((p) => picked.has(p.id));
+  }, [allProductCatalog, selectedExportFuels]);
+
+  const toggleExportFuel = (id: string) => {
+    setExplorerPage(1);
+    setSelectedExportFuels((prev) => {
+      const base = prev === null ? allProductCatalog.map((p) => p.id) : prev;
+      return base.includes(id) ? base.filter((x) => x !== id) : [...base, id];
+    });
+  };
+
   // Explorer table rows
   const explorerRows = useMemo(() => {
-    if (!filteredDays.length || !allProductCatalog.length) return [];
-    const ids = allProductCatalog.map((p) => p.id);
+    if (!filteredDays.length || !selectedExportCatalog.length) return [];
+    const ids = selectedExportCatalog.map((p) => p.id);
     const getComp = (p: EppoProduct | undefined) => {
       if (!p) return 0;
       if (explorerComp === "excise_tax") return +(p.excise_tax + p.m_tax).toFixed(3);
@@ -670,20 +685,30 @@ export default function OilPriceDashboard() {
     });
 
     return explorerGranularity === "change_only" ? mapped.filter((r) => r.changed) : mapped;
-  }, [filteredDays, allProductCatalog, explorerComp, explorerGranularity]);
+  }, [filteredDays, selectedExportCatalog, explorerComp, explorerGranularity]);
 
   const exportCsv = () => {
-    if (!allProductCatalog.length || !explorerRows.length) return;
-    const prods = allProductCatalog;
-    const lines = [["date", "note", ...prods.map((p) => `"${p.name}"`)].join(",")];
-    explorerRows.forEach((r) => {
-      lines.push([r.date, `"${r.note || ""}"`, ...prods.map((p) => r.values[p.id] ?? 0)].join(","));
-    });
+    if (!selectedExportCatalog.length || !explorerRows.length) return;
+    const prods = selectedExportCatalog;
+    const lines: string[] = [];
+    if (explorerFormat === "wide") {
+      lines.push(["date", "note", ...prods.map((p) => `"${p.name}"`)].join(","));
+      explorerRows.forEach((r) => {
+        lines.push([r.date, `"${r.note || ""}"`, ...prods.map((p) => r.values[p.id] ?? 0)].join(","));
+      });
+    } else {
+      lines.push(["date", "note", "fuel_id", "fuel_name", "value"].join(","));
+      explorerRows.forEach((r) => {
+        prods.forEach((p) => {
+          lines.push([r.date, `"${r.note || ""}"`, p.id, `"${p.name}"`, r.values[p.id] ?? 0].join(","));
+        });
+      });
+    }
     const blob = new Blob(["\uFEFF" + lines.join("\n")], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `eppo_${explorerComp}_${startDate}_${endDate}.csv`;
+    a.download = `eppo_${explorerComp}_${explorerFormat}_${startDate}_${endDate}.csv`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -1110,10 +1135,69 @@ export default function OilPriceDashboard() {
                 <h2 className="text-base font-semibold">คลังข้อมูล &amp; Export ({explorerRows.length} แถว)</h2>
                 <button
                   onClick={exportCsv}
-                  className="px-3.5 py-2 rounded-lg text-xs font-semibold bg-sky-700 hover:bg-sky-800 text-white"
+                  disabled={!selectedExportCatalog.length || !explorerRows.length}
+                  className="px-3.5 py-2 rounded-lg text-xs font-semibold bg-sky-700 hover:bg-sky-800 disabled:opacity-40 text-white"
                 >
                   Export CSV (UTF-8 BOM)
                 </button>
+              </div>
+              <div className="rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/40 p-3 space-y-2">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="text-xs font-medium text-slate-600 dark:text-slate-300">
+                    เลือกชนิดผลิตภัณฑ์ที่แสดงในตาราง &amp; Export ({selectedExportCatalog.length}/{allProductCatalog.length})
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setExplorerPage(1);
+                        setSelectedExportFuels(null);
+                      }}
+                      className="px-2 py-0.5 text-[11px] font-medium rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700"
+                    >
+                      เลือกทั้งหมด
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setExplorerPage(1);
+                        setSelectedExportFuels(latestDay ? latestDay.products.map((p) => p.id) : []);
+                      }}
+                      className="px-2 py-0.5 text-[11px] font-medium rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700"
+                    >
+                      เฉพาะตัวหลักปัจจุบัน
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setExplorerPage(1);
+                        setSelectedExportFuels([]);
+                      }}
+                      className="px-2 py-0.5 text-[11px] font-medium rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700"
+                    >
+                      ล้างทั้งหมด
+                    </button>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {allProductCatalog.map((p) => {
+                    const checked = selectedExportFuels === null || selectedExportFuels.includes(p.id);
+                    return (
+                      <button
+                        key={p.id}
+                        type="button"
+                        onClick={() => toggleExportFuel(p.id)}
+                        className={`px-2.5 py-1 rounded-full text-[11px] font-medium border transition ${
+                          checked
+                            ? "bg-sky-600 text-white border-sky-600"
+                            : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700 hover:border-sky-400"
+                        }`}
+                      >
+                        {checked ? "✓ " : ""}{p.name}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <select
@@ -1159,7 +1243,7 @@ export default function OilPriceDashboard() {
                       <tr>
                         <th className="px-3 py-2.5 whitespace-nowrap">วันที่</th>
                         <th className="px-3 py-2.5 whitespace-nowrap">หมายเหตุ</th>
-                        {allProductCatalog.map((p) => (
+                        {selectedExportCatalog.map((p) => (
                           <th key={p.id} className="px-3 py-2.5 text-right whitespace-nowrap">
                             {p.name}
                           </th>
@@ -1174,12 +1258,18 @@ export default function OilPriceDashboard() {
                     )}
                   </thead>
                   <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                    {explorerFormat === "wide"
+                    {selectedExportCatalog.length === 0 ? (
+                      <tr>
+                        <td colSpan={3} className="px-4 py-8 text-center text-slate-500">
+                          กรุณาเลือกผลิตภัณฑ์อย่างน้อย 1 ชนิดด้านบนเพื่อแสดงข้อมูลและ Export
+                        </td>
+                      </tr>
+                    ) : explorerFormat === "wide"
                       ? explorerRows.slice((explorerPage - 1) * 50, explorerPage * 50).map((r) => (
                           <tr key={r.date} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
                             <td className="px-3 py-2 font-mono whitespace-nowrap">{r.date}</td>
                             <td className="px-3 py-2 whitespace-nowrap text-amber-700 dark:text-amber-300">{r.note || "—"}</td>
-                            {allProductCatalog.map((p) => (
+                            {selectedExportCatalog.map((p) => (
                               <td key={p.id} className="px-3 py-2 text-right font-mono tabular-nums">
                                 {(r.values[p.id] ?? 0).toFixed(2)}
                               </td>
@@ -1187,7 +1277,7 @@ export default function OilPriceDashboard() {
                           </tr>
                         ))
                       : explorerRows.slice((explorerPage - 1) * 50, explorerPage * 50).flatMap((r) =>
-                          allProductCatalog.map((p) => (
+                          selectedExportCatalog.map((p) => (
                             <tr key={`${r.date}-${p.id}`}>
                               <td className="px-3 py-2 font-mono">{r.date}</td>
                               <td className="px-3 py-2">{p.name}</td>
