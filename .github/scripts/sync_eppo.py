@@ -269,6 +269,42 @@ def save_json(path: Path, payload: Any) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+PTTOR_PRODUCT_MAP = {
+    "เบนซินแก๊สโซฮอล์ 95": "G95",
+    "เบนซินแก๊สโซฮอล์ 91": "G91",
+    "เบนซินแก๊สโซฮอล์ E20": "E20",
+    "เบนซินแก๊สโซฮอล์ E85": "E85",
+    "เบนซิน": "ULG95",
+    "ดีเซล": "HDIESEL",
+    "ดีเซล B20": "B20",
+    "Super Power GSH95": "PG95",
+    "Super Power Diesel": "PDIESEL",
+    "Super Power X99": "PX99",
+}
+
+
+def _parse_pttor_ds(ds_xml: str) -> tuple[str, str, dict[str, float]]:
+    ds = ET.fromstring(ds_xml)
+    prices: dict[str, float] = {}
+    eff_date = ""
+    eff_time = "05:00"
+    for f in ds.findall("FUEL"):
+        prod = (f.findtext("PRODUCT") or "").strip()
+        price_str = f.findtext("PRICE")
+        p_dt = (f.findtext("PRICE_DATE") or "").strip()
+        if p_dt and not eff_date:
+            eff_date = p_dt[:10]
+            if "T" in p_dt:
+                eff_time = p_dt.split("T")[1][:5]
+        code = PTTOR_PRODUCT_MAP.get(prod)
+        if code and price_str:
+            try:
+                prices[code] = round(float(price_str), 2)
+            except ValueError:
+                pass
+    return eff_date, eff_time, prices
+
+
 def fetch_pttor_retail() -> tuple[str, str, dict[str, float]]:
     """Fetch official daily retail prices from PTTOR OilPrice.asmx (works 7 days/week)."""
     soap = """<?xml version="1.0" encoding="utf-8"?>
@@ -290,38 +326,32 @@ def fetch_pttor_retail() -> tuple[str, str, dict[str, float]]:
     res_node = root.find(".//{http://www.pttor.com}CurrentOilPriceResult")
     if res_node is None or not res_node.text:
         return "", "05:00", {}
-    ds = ET.fromstring(res_node.text)
+    return _parse_pttor_ds(res_node.text)
 
-    pttor_map = {
-        "เบนซินแก๊สโซฮอล์ 95": "G95",
-        "เบนซินแก๊สโซฮอล์ 91": "G91",
-        "เบนซินแก๊สโซฮอล์ E20": "E20",
-        "เบนซินแก๊สโซฮอล์ E85": "E85",
-        "เบนซิน": "ULG95",
-        "ดีเซล": "HDIESEL",
-        "ดีเซล B20": "B20",
-        "Super Power GSH95": "PG95",
-        "Super Power Diesel": "PDIESEL",
-        "Super Power X99": "PX99",
-    }
-    prices: dict[str, float] = {}
-    eff_date = ""
-    eff_time = "05:00"
-    for f in ds.findall("FUEL"):
-        prod = (f.findtext("PRODUCT") or "").strip()
-        price_str = f.findtext("PRICE")
-        p_dt = (f.findtext("PRICE_DATE") or "").strip()
-        if p_dt and not eff_date:
-            eff_date = p_dt[:10]
-            if "T" in p_dt:
-                eff_time = p_dt.split("T")[1][:5]
-        code = pttor_map.get(prod)
-        if code and price_str:
-            try:
-                prices[code] = round(float(price_str), 2)
-            except ValueError:
-                pass
-    return eff_date, eff_time, prices
+
+def fetch_pttor_by_date(target_date: dt.date) -> dict[str, float]:
+    """Fetch PTTOR historical retail prices for a specific date via GetOilPrice."""
+    soap = f"""<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body><GetOilPrice xmlns="http://www.pttor.com"><Language>TH</Language><DD>{target_date.day}</DD><MM>{target_date.month}</MM><YYYY>{target_date.year}</YYYY></GetOilPrice></soap:Body>
+</soap:Envelope>"""
+    r = requests.post(
+        "https://orapiweb.pttor.com/oilservice/OilPrice.asmx",
+        data=soap.encode("utf-8"),
+        headers={
+            "Content-Type": "text/xml; charset=utf-8",
+            "SOAPAction": '"http://www.pttor.com/GetOilPrice"',
+            "User-Agent": HEADERS["User-Agent"],
+        },
+        timeout=15,
+    )
+    r.raise_for_status()
+    root = ET.fromstring(r.text)
+    res_node = root.find(".//{http://www.pttor.com}GetOilPriceResult")
+    if res_node is None or not res_node.text:
+        return {}
+    _, _, prices = _parse_pttor_ds(res_node.text)
+    return prices
 
 
 def fetch_bangchak_retail() -> tuple[str, str, dict[str, float]]:
@@ -528,6 +558,48 @@ def flush_outputs(
         }
         save_json(DATA_DIR / "retail_latest.json", retail_seed)
         save_json(retail_public, retail_seed)
+
+        # Maintain 7-day/week retail_history.json (PTTOR 1Y backfill + daily snapshots of PTTOR/BCP/Caltex)
+        retail_hist_path = DATA_DIR / "retail_history.json"
+        retail_hist_public = PUBLIC_DATA_DIR / "retail_history.json"
+        retail_hist: dict[str, dict[str, Any]] = load_json(retail_hist_path, {})
+
+        bkt_today = dt.datetime.now(dt.timezone(dt.timedelta(hours=7))).date()
+        backfill_days = int(os.getenv("RETAIL_BACKFILL_DAYS", "365"))
+        missing_dates = [
+            bkt_today - dt.timedelta(days=offset)
+            for offset in range(1, backfill_days + 1)
+            if (bkt_today - dt.timedelta(days=offset)).isoformat() not in retail_hist
+        ]
+        if missing_dates:
+            print(f"[INFO] Backfilling {len(missing_dates)} days of PTTOR historical retail prices...")
+            with ThreadPoolExecutor(max_workers=12) as pool:
+                future_map = {pool.submit(fetch_pttor_by_date, d): d for d in missing_dates}
+                for fut in as_completed(future_map):
+                    d_obj = future_map[fut]
+                    d_str = d_obj.isoformat()
+                    try:
+                        p_map = fut.result()
+                        if p_map:
+                            entry = retail_hist.get(d_str, {"date": d_str})
+                            entry["ptt"] = p_map
+                            retail_hist[d_str] = entry
+                    except Exception:
+                        pass
+
+        today_str = bkt_today.isoformat()
+        today_entry = retail_hist.get(today_str, {"date": today_str})
+        if ptt_prices:
+            today_entry["ptt"] = ptt_prices
+        if bcp_prices:
+            today_entry["bcp"] = bcp_prices
+        if caltex_prices:
+            today_entry["caltex"] = caltex_prices
+        retail_hist[today_str] = today_entry
+
+        sorted_hist = dict(sorted(retail_hist.items()))
+        save_json(retail_hist_path, sorted_hist)
+        save_json(retail_hist_public, sorted_hist)
 
 
 def main() -> None:

@@ -12,6 +12,14 @@ import type {
 
 type TabId = "retail" | "structure" | "explorer";
 type MetricKey = "oil_fund" | "ex_refinery" | "excise_tax" | "mkt_margin" | "retail";
+type RetailSource = "ptt" | "bcp" | "caltex" | "eppo";
+
+interface RetailHistoryEntry {
+  date: string;
+  ptt?: Record<string, number>;
+  bcp?: Record<string, number>;
+  caltex?: Record<string, number>;
+}
 
 const TH_MONTHS = ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."];
 
@@ -22,6 +30,7 @@ export default function OilPriceDashboard() {
   const [manifest, setManifest] = useState<SyncManifest | null>(null);
   const [yearsIndex, setYearsIndex] = useState<YearsIndex | null>(null);
   const [retailLatest, setRetailLatest] = useState<RetailLatest | null>(null);
+  const [retailHistory, setRetailHistory] = useState<Record<string, RetailHistoryEntry>>({});
   const [historyMap, setHistoryMap] = useState<Record<string, EppoDayRecord>>({});
   const [loading, setLoading] = useState(true);
 
@@ -41,6 +50,7 @@ export default function OilPriceDashboard() {
   const [explorerPage, setExplorerPage] = useState(1);
 
   const [retailRange, setRetailRange] = useState<"1m" | "3m" | "ytd" | "1y" | "all">("3m");
+  const [retailSource, setRetailSource] = useState<RetailSource>("ptt");
 
   const retailCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const stackedCanvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -57,18 +67,21 @@ export default function OilPriceDashboard() {
     async function loadAll() {
       const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
       try {
-        const [mRes, yRes, rRes] = await Promise.all([
+        const [mRes, yRes, rRes, rhRes] = await Promise.all([
           fetch(`${base}/data/sync_manifest.json`),
           fetch(`${base}/data/years_index.json`),
           fetch(`${base}/data/retail_latest.json`),
+          fetch(`${base}/data/retail_history.json`).catch(() => null),
         ]);
         const mJson: SyncManifest = await mRes.json();
         const yJson: YearsIndex = await yRes.json();
         const rJson: RetailLatest = await rRes.json();
+        const rhJson: Record<string, RetailHistoryEntry> = rhRes && rhRes.ok ? await rhRes.json() : {};
 
         setManifest(mJson);
         setYearsIndex(yJson);
         setRetailLatest(rJson);
+        setRetailHistory(rhJson);
         setStartDate(`${yJson.max_date.slice(0, 4)}-01-01`);
         setEndDate(yJson.max_date);
         setTrendYear(yJson.max_date.slice(0, 4));
@@ -153,11 +166,37 @@ export default function OilPriceDashboard() {
 
   // Render Page 1 Retail Price Trend Chart
   useEffect(() => {
-    if (activeTab !== "retail" || !allDays.length || !retailCanvasRef.current) return;
+    if (activeTab !== "retail" || !retailCanvasRef.current) return;
+    const histDates = Object.keys(retailHistory).sort();
+    const eppoDates = allDays.map((d) => d.date);
+    if (!histDates.length && !eppoDates.length) return;
     chartsRef.current.retail?.destroy();
 
-    const maxD = allDays[allDays.length - 1].date;
-    let minD = allDays[0].date;
+    const dateSet = new Set<string>();
+    if (retailSource === "eppo") {
+      eppoDates.forEach((d) => dateSet.add(d));
+    } else if (retailSource === "bcp" || retailSource === "caltex") {
+      histDates.forEach((d) => {
+        if (retailHistory[d]?.[retailSource]) dateSet.add(d);
+      });
+    } else {
+      // ptt: 7-day/week PTTOR history + EPPO fallback for older dates ("all" / 10 ปี)
+      histDates.forEach((d) => {
+        if (retailHistory[d]?.ptt) dateSet.add(d);
+      });
+      if (retailRange === "all" || !histDates.length) {
+        const earliestPtt = histDates[0] || "9999-12-31";
+        eppoDates.forEach((d) => {
+          if (d < earliestPtt) dateSet.add(d);
+        });
+      }
+    }
+
+    const sortedDates = Array.from(dateSet).sort();
+    if (!sortedDates.length) return;
+
+    const maxD = sortedDates[sortedDates.length - 1];
+    let minD = sortedDates[0];
     const end = new Date(maxD);
     if (retailRange === "1m") {
       const d = new Date(end); d.setMonth(d.getMonth() - 1); minD = d.toISOString().slice(0, 10);
@@ -169,9 +208,9 @@ export default function OilPriceDashboard() {
       const d = new Date(end); d.setFullYear(d.getFullYear() - 1); minD = d.toISOString().slice(0, 10);
     }
 
-    const slice = allDays.filter((d) => d.date >= minD);
-    const rows = slice.length ? slice : allDays;
-    const spanDays = Math.max(1, (new Date(rows[rows.length - 1].date).getTime() - new Date(rows[0].date).getTime()) / 86400000);
+    const slice = sortedDates.filter((d) => d >= minD);
+    const dates = slice.length ? slice : sortedDates;
+    const spanDays = Math.max(1, (new Date(dates[dates.length - 1]).getTime() - new Date(dates[0]).getTime()) / 86400000);
     let lastTick = "";
     const textColor = isDark ? "#cbd5e1" : "#334155";
     const gridColor = isDark ? "#334155" : "#e2e8f0";
@@ -184,13 +223,28 @@ export default function OilPriceDashboard() {
       { id: "ULG95", label: "ULG95", color: "#e11d48" },
     ];
 
+    const getPriceForDate = (dt: string, fuelId: string): number | null => {
+      if (retailSource !== "eppo") {
+        const brandVal = retailHistory[dt]?.[retailSource]?.[fuelId];
+        if (brandVal !== undefined) return brandVal;
+        if (retailSource === "ptt") {
+          return historyMap[dt]?.products.find((p) => p.id === fuelId)?.retail ?? null;
+        }
+        return null;
+      }
+      return historyMap[dt]?.products.find((p) => p.id === fuelId)?.retail ?? null;
+    };
+
     chartsRef.current.retail = new Chart(retailCanvasRef.current, {
       type: "line",
       data: {
-        labels: rows.map((d) => d.date + (d.note ? ` (${d.note})` : "")),
+        labels: dates.map((dt) => {
+          const note = historyMap[dt]?.note;
+          return dt + (note ? ` (${note})` : "");
+        }),
         datasets: series.map((s) => ({
           label: s.label,
-          data: rows.map((d) => d.products.find((p) => p.id === s.id)?.retail ?? null),
+          data: dates.map((dt) => getPriceForDate(dt, s.id)),
           borderColor: s.color,
           backgroundColor: s.color,
           borderWidth: 2,
@@ -200,7 +254,7 @@ export default function OilPriceDashboard() {
       },
       options: {
         animation: false,
-        elements: { point: { radius: rows.length > 90 ? 0 : 2 } },
+        elements: { point: { radius: dates.length > 90 ? 0 : 2 } },
         responsive: true,
         maintainAspectRatio: false,
         scales: {
@@ -211,7 +265,7 @@ export default function OilPriceDashboard() {
               maxRotation: 0,
               autoSkip: false,
               callback: (_val, index) => {
-                const dt = rows[index]?.date;
+                const dt = dates[index];
                 if (!dt) return "";
                 const [y, m, d] = dt.split("-");
                 const beYear = Number(y) + 543;
@@ -236,7 +290,7 @@ export default function OilPriceDashboard() {
         },
       },
     });
-  }, [activeTab, allDays, retailRange, isDark]);
+  }, [activeTab, allDays, historyMap, retailHistory, retailRange, retailSource, isDark]);
 
   // Render Page 2 Charts
   useEffect(() => {
@@ -784,21 +838,41 @@ export default function OilPriceDashboard() {
             <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                 <div>
-                  <h2 className="text-base font-semibold">แนวโน้มราคาขายปลีกอ้างอิงรายวัน (Retail Price Trend)</h2>
-                  <p className="text-xs text-slate-500">เปรียบเทียบการเคลื่อนไหวราคาขายปลีกน้ำมันหลักหน้าสถานีบริการ</p>
+                  <h2 className="text-base font-semibold">แนวโน้มราคาขายปลีกรายวัน (Retail Price Trend)</h2>
+                  <p className="text-xs text-slate-500">
+                    {retailSource === "ptt"
+                      ? retailRange === "all"
+                        ? "PTTOR รายวัน (7 วัน/สัปดาห์ ย้อนหลัง 1 ปี) + EPPO ย้อนหลัง 10 ปี"
+                        : "ข้อมูลราคาหน้าปั๊มจริง PTTOR (ครบทุกวัน จันทร์–อาทิตย์)"
+                      : retailSource === "eppo"
+                        ? "ราคาขายปลีกอ้างอิง กทม. จาก EPPO (เฉพาะวันทำการ)"
+                        : `ข้อมูลราคาจริง ${retailSource === "bcp" ? "Bangchak" : "Caltex"} (เก็บสะสมรายวันต่อเนื่อง)`}
+                  </p>
                 </div>
-                <div className="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-0.5 bg-slate-50 dark:bg-slate-800">
-                  {(["1m", "3m", "ytd", "1y", "all"] as const).map((r) => (
-                    <button
-                      key={r}
-                      onClick={() => setRetailRange(r)}
-                      className={`px-2.5 py-1 text-xs font-medium rounded-md ${
-                        retailRange === r ? "bg-white dark:bg-slate-700 shadow-sm text-sky-700 dark:text-sky-300" : "text-slate-500"
-                      }`}
-                    >
-                      {r === "all" ? "10 ปี" : r.toUpperCase()}
-                    </button>
-                  ))}
+                <div className="flex flex-wrap items-center gap-2">
+                  <select
+                    value={retailSource}
+                    onChange={(e) => setRetailSource(e.target.value as RetailSource)}
+                    className="px-2.5 py-1 text-xs font-medium rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800"
+                  >
+                    <option value="ptt">PTTOR (7 วัน/สัปดาห์)</option>
+                    <option value="bcp">Bangchak (สะสมรายวัน)</option>
+                    <option value="caltex">Caltex (สะสมรายวัน)</option>
+                    <option value="eppo">EPPO (อ้างอิง 10 ปี)</option>
+                  </select>
+                  <div className="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 p-0.5 bg-slate-50 dark:bg-slate-800">
+                    {(["1m", "3m", "ytd", "1y", "all"] as const).map((r) => (
+                      <button
+                        key={r}
+                        onClick={() => setRetailRange(r)}
+                        className={`px-2.5 py-1 text-xs font-medium rounded-md ${
+                          retailRange === r ? "bg-white dark:bg-slate-700 shadow-sm text-sky-700 dark:text-sky-300" : "text-slate-500"
+                        }`}
+                      >
+                        {r === "all" ? "10 ปี" : r.toUpperCase()}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
               <div className="relative h-72">
