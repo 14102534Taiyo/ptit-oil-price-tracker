@@ -1,6 +1,6 @@
 {
-  "effective_date": "2026-11-20",
-  "effective_time": "13:00",
+  "effective_date": "2026-11-25",
+  "effective_time": "05:00",
   "note": "ราคาจริงรายวัน: PTTOR (orapiweb) • Bangchak (ApiOilPrice2) • Caltex (caltex.com)",
   "brands": [
     "PTTOR",
@@ -56,20 +56,20 @@
     {
       "id": "HDIESEL",
       "name": "H-DIESEL",
-      "ptt": 39.94,
+      "ptt": 39.34,
       "bcp": 39.94,
       "caltex": 39.94,
       "eppo": 39.94,
-      "delta": 0.0
+      "delta": -0.6
     },
     {
       "id": "B20",
       "name": "H-DIESEL B20",
-      "ptt": 33.5,
+      "ptt": 32.9,
       "bcp": 33.5,
       "caltex": 33.5,
       "eppo": 33.5,
-      "delta": 0.0
+      "delta": -0.6
     },
     {
       "id": "FO600",
