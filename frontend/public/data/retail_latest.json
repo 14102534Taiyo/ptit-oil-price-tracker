@@ -57,19 +57,19 @@
       "id": "HDIESEL",
       "name": "H-DIESEL",
       "ptt": 39.34,
-      "bcp": 39.94,
-      "caltex": 39.94,
-      "eppo": 39.94,
-      "delta": -0.6
+      "bcp": 39.34,
+      "caltex": 39.34,
+      "eppo": 39.34,
+      "delta": 0.0
     },
     {
       "id": "B20",
       "name": "H-DIESEL B20",
       "ptt": 32.9,
-      "bcp": 33.5,
-      "caltex": 33.5,
-      "eppo": 33.5,
-      "delta": -0.6
+      "bcp": 32.9,
+      "caltex": 32.9,
+      "eppo": 32.9,
+      "delta": 0.0
     },
     {
       "id": "FO600",
@@ -77,7 +77,7 @@
       "ptt": null,
       "bcp": null,
       "caltex": null,
-      "eppo": 22.58,
+      "eppo": 21.95,
       "delta": 0.0
     },
     {
@@ -86,7 +86,7 @@
       "ptt": null,
       "bcp": null,
       "caltex": null,
-      "eppo": 20.6,
+      "eppo": 20.03,
       "delta": 0.0
     },
     {
