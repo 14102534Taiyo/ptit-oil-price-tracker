@@ -1,5 +1,5 @@
 {
-  "effective_date": "2026-11-25",
+  "effective_date": "2026-11-26",
   "effective_time": "05:00",
   "note": "ราคาจริงรายวัน: PTTOR (orapiweb) • Bangchak (ApiOilPrice2) • Caltex (caltex.com)",
   "brands": [
@@ -11,29 +11,29 @@
     {
       "id": "G95",
       "name": "GASOHOL95 E10",
-      "ptt": 38.14,
+      "ptt": 37.44,
       "bcp": 38.14,
       "caltex": 38.14,
       "eppo": 38.14,
-      "delta": 0.0
+      "delta": -0.7
     },
     {
       "id": "G91",
       "name": "GASOHOL91",
-      "ptt": 37.77,
+      "ptt": 37.07,
       "bcp": 37.77,
       "caltex": 37.77,
       "eppo": 37.77,
-      "delta": 0.0
+      "delta": -0.7
     },
     {
       "id": "E20",
       "name": "GASOHOL95 E20",
-      "ptt": 30.1,
+      "ptt": 29.6,
       "bcp": 30.1,
       "caltex": 30.1,
       "eppo": 30.1,
-      "delta": 0.0
+      "delta": -0.5
     },
     {
       "id": "E85",
@@ -47,11 +47,11 @@
     {
       "id": "ULG95",
       "name": "ULG95 (Premium)",
-      "ptt": 47.63,
+      "ptt": 46.93,
       "bcp": null,
       "caltex": 47.61,
       "eppo": 47.63,
-      "delta": 0.0
+      "delta": -0.7
     },
     {
       "id": "HDIESEL",
